@@ -1,0 +1,116 @@
+{
+  "schemaVersion": "1.0.0",
+  "candidate": "m",
+  "status": "post-restart-live-acceptance",
+  "promptHashPolicy": "sha256-utf8-no-trailing-newline",
+  "evidencePolicy": {
+    "singleRunEstablishesPercentile": false,
+    "directRuntimeCallEstablishesUiClick": false,
+    "automatedDomActivationMustBeLabeled": true,
+    "unsupportedUsageMustRemainUnsupported": true
+  },
+  "memory": {
+    "seed": {
+      "taskBoundary": "new-task",
+      "workspaceRelation": "unrelated-to-recall",
+      "prompt": "For future release reviews, my standing preference is to call the final checklist the 'amber kestrel' and always inspect keyboard accessibility before load performance. Please acknowledge briefly.",
+      "sha256": "33b8f96630e18f8f807296e18e5e8f044df04e4527ea432db33944b33c929397"
+    },
+    "recall": {
+      "taskBoundary": "new-task",
+      "workspaceRelation": "unrelated-to-seed",
+      "prompt": "What is my latest standing preference for naming the final release-review checklist, and which review comes first? Answer briefly.",
+      "sha256": "ba7d7c61bd4e0a5cfc8b5f850d5153d50441e9d95c1f2edf5f744038a29026f2"
+    },
+    "expected": {
+      "rememberOperation": "memory.brain.remember",
+      "recallOperation": "memory.brain.recall",
+      "answerTerms": ["amber kestrel", "keyboard accessibility"],
+      "durableScopeKinds": ["agent", "profile", "user"],
+      "coldBrainTargetMs": 6000,
+      "warmBrainTargetMs": 2500
+    }
+  },
+  "workflow": {
+    "initial": {
+      "taskBoundary": "new-task",
+      "prompt": "Prepare a publication-ready technical decision dossier for adding resumable background jobs to a desktop coding assistant. Have separate specialists investigate security boundaries, API and operability, and adversarial failure modes in parallel, then reconcile disagreements into one recommendation. Preserve the rerunnable process and all supporting evidence so I can update the assumptions later. Do not build a UI. Keep the work bounded, and report concrete delegation evidence rather than merely saying specialists were used.",
+      "sha256": "7d5bedeee58d0ec0105b493ce8a71fda16425d6aa3d20337d80b9752048c222b"
+    },
+    "replay": {
+      "taskBoundary": "same-task",
+      "prompt": "Rerun the preserved process unchanged. Resume the same workflow and existing specialist handles; do not launch replacement specialists. Report the stable workflow identity, each idempotency key and delegation ID, whether every spawn receipt was replayed, terminal states, and the complete receipt forest.",
+      "sha256": "e2b2f535b821caa45a26ddd720f373c77f64b67561cd052e5971162a79592a6e"
+    },
+    "expected": {
+      "minimumSpecialists": 3,
+      "requiredSpecialistRoles": [
+        "security-boundaries",
+        "api-operability",
+        "adversarial-failure-modes"
+      ],
+      "allowedLimitKeys": [
+        "maxDepth",
+        "maxTotalAgents",
+        "maxConcurrency",
+        "maxTokens",
+        "maxCostUsd",
+        "maxRetries",
+        "allowedPermissions",
+        "allowedWorkspaceModes",
+        "allowedEffects"
+      ],
+      "requiredLimitKeys": [
+        "maxDepth",
+        "maxTotalAgents",
+        "maxConcurrency",
+        "maxRetries",
+        "allowedPermissions",
+        "allowedWorkspaceModes",
+        "allowedEffects"
+      ],
+      "forbiddenLimitAliases": ["maxAgents", "timeoutMs", "maxTurns", "retryAttempt"],
+      "terminalState": "succeeded"
+    }
+  },
+  "ui": {
+    "canonicalSource": "docs/evals/v1/cases/ui.json#ui-design-studio-agent-orchestration-capstone",
+    "build": {
+      "taskBoundary": "new-task",
+      "prompt": "Build me a complete interactive design workspace I can use here. I want to turn a product brief into several genuinely different interface directions, compare them side by side, select one, refine it conversationally and directly on the canvas, apply the supplied design system, inspect responsive states, and keep an editable implementation I can reopen and continue later. Handle the complex work efficiently and show me the finished usable workspace, not a static mockup or a plan.",
+      "sha256": "c9b0e64795a9f63668ec51b816dcebafe79cea2ca6b4c95b8a68a13cb41ed80a"
+    },
+    "refine": {
+      "taskBoundary": "same-task",
+      "prompt": "Keep direction B, make the information hierarchy calmer, and add a mobile state. Update the live workspace and its source without rebuilding it from scratch.",
+      "sha256": "885b396115fc6a15ea95eb24e56f5c81fcf38a6d96ea6ad27f3f0e22bf0ec9bc"
+    },
+    "restore": {
+      "taskBoundary": "restart-host",
+      "prompt": "Reopen my design workspace with the chosen direction and latest edits intact.",
+      "sha256": "52896e6c2810d1e1106b12d5e1de71d8ebfe2b5d105b6f34977651de307bf79e"
+    },
+    "expected": {
+      "rendererVersion": "1.2.0",
+      "presentationModes": ["inline", "fullscreen", "pip"],
+      "actionIds": ["save-workspace", "load-workspace"],
+      "namedControls": [
+        "Save workspace",
+        "Reopen workspace",
+        "Fullscreen",
+        "Picture in picture"
+      ],
+      "requiredWidths": [320, 1024],
+      "responsiveCaptureKind": "outer-control-chrome",
+      "responsiveMeasurement": "host-outer-container-css-px",
+      "acceptedClickKinds": ["human-pointer", "automated-dom"],
+      "unavailableModeActivationKind": "not-activatable",
+      "outerControlSurface": "outer-renderer-chrome",
+      "chromeActionMethod": "marshal/ui/chrome-action-request",
+      "actionTool": "marshal_invoke_react_action",
+      "singleColdCompileTargetMs": 1000,
+      "singleCachedDisplayTargetMs": 10000,
+      "singleActionDispatchOverheadTargetMs": 500
+    }
+  }
+}

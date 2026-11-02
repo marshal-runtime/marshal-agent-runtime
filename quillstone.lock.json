@@ -1,0 +1,97 @@
+{
+  "repository": "marshal-runtime/quillstone",
+  "tag": "v0.6.0",
+  "gitSha": "e7c30b455a10f43e31cbaea3640ca33c8c8c530c",
+  "packages": [
+    {
+      "name": "@quillstone/analysis-tools",
+      "version": "0.6.0",
+      "file": "quillstone-analysis-tools-0.6.0.tgz",
+      "sha256": "04383bbe2f1c190897e9de200474d594b0bff6d533a570083da96f82b8a78de7"
+    },
+    {
+      "name": "@quillstone/communities-processes",
+      "version": "0.6.0",
+      "file": "quillstone-communities-processes-0.6.0.tgz",
+      "sha256": "76921031f91ce3ad9993fadf5da841472a3156e8e52773b02e1ecb002435ee06"
+    },
+    {
+      "name": "@quillstone/contracts",
+      "version": "0.6.0",
+      "file": "quillstone-contracts-0.6.0.tgz",
+      "sha256": "087d2155cd9da808a41b71ef35c679d8ebc3a721b8cf13ed0ea183da105419aa"
+    },
+    {
+      "name": "@quillstone/embedding-runtime",
+      "version": "0.6.0",
+      "file": "quillstone-embedding-runtime-0.6.0.tgz",
+      "sha256": "b84f799362c1920d001311b4fedbd4c6cc8f137af8d4946c2d7e8f51980bac49"
+    },
+    {
+      "name": "@quillstone/kind-health",
+      "version": "0.6.0",
+      "file": "quillstone-kind-health-0.6.0.tgz",
+      "sha256": "c8a045761a597c147085f305b466a2e81d20919613aa3d912bb982736d8ed45b"
+    },
+    {
+      "name": "@quillstone/local-alpha-index-core",
+      "version": "0.6.0",
+      "file": "quillstone-local-alpha-index-core-0.6.0.tgz",
+      "sha256": "5702e478455474e5330bb08aa41e874e4fad78e31c59231b6bf159655847f24f"
+    },
+    {
+      "name": "@quillstone/marshal-memory-bridge",
+      "version": "0.6.0",
+      "file": "quillstone-marshal-memory-bridge-0.6.0.tgz",
+      "sha256": "eb05f432583811927a01c9b8fd0162cd198f429b1c1f4e82eecb4e2bba702502"
+    },
+    {
+      "name": "@quillstone/pdg-taint",
+      "version": "0.6.0",
+      "file": "quillstone-pdg-taint-0.6.0.tgz",
+      "sha256": "36ea9d7041dc992f260ea3987bf248ac930e5ed13aace71c63ed5eb56a5ec44a"
+    },
+    {
+      "name": "@quillstone/repository-registry-config",
+      "version": "0.6.0",
+      "file": "quillstone-repository-registry-config-0.6.0.tgz",
+      "sha256": "365202265de82c0f8311cd50ed4032f836eb8dad987e757a8e21c17c98b9e9c9"
+    },
+    {
+      "name": "@quillstone/resolution-index-pipeline",
+      "version": "0.6.0",
+      "file": "quillstone-resolution-index-pipeline-0.6.0.tgz",
+      "sha256": "8c97054774e541dbcfd7dfa8833a2a1908f40010022f6767ba28175b2c617dd1"
+    },
+    {
+      "name": "@quillstone/scanner-parsers",
+      "version": "0.6.0",
+      "file": "quillstone-scanner-parsers-0.6.0.tgz",
+      "sha256": "cda067c2dc4af37f26e58cb121f83be0111424a9250fe3d887e04b7701f770dc"
+    },
+    {
+      "name": "@quillstone/search",
+      "version": "0.6.0",
+      "file": "quillstone-search-0.6.0.tgz",
+      "sha256": "2b08d15f99b10cb9fbd0ca8f98d600c87065b944686b871fa7a6b28b93134cd7"
+    },
+    {
+      "name": "@quillstone/shared-schema",
+      "version": "0.6.0",
+      "file": "quillstone-shared-schema-0.6.0.tgz",
+      "sha256": "deb8b9a6bfde1f26d13bc4547780f1cac515e7221596c52bb3b3a817502a7b4d"
+    },
+    {
+      "name": "@quillstone/spanner-storage",
+      "version": "0.6.0",
+      "file": "quillstone-spanner-storage-0.6.0.tgz",
+      "sha256": "3d9347ead046abc29e0203f63406d28cc2070d3037c99777df1800d2ed595e56"
+    },
+    {
+      "name": "@quillstone/typed-graph",
+      "version": "0.6.0",
+      "file": "quillstone-typed-graph-0.6.0.tgz",
+      "sha256": "166969c49724c41f82e0dfa74b2151d4eb14ff807d58312ed34985dca8201ac0"
+    }
+  ]
+}

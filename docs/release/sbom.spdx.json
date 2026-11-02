@@ -1,0 +1,1081 @@
+{
+  "spdxVersion": "SPDX-2.3",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "name": "Marshal agent runtime npm publication set",
+  "documentNamespace": "urn:marshal:agent-runtime:spdx:6907fa85a2a97add3cab7ae09798a212ca4c193089967683b0933d319b0aee5f",
+  "documentComment": "Deterministic publication SBOM. It inventories workspace packages and their direct declared runtime/optional/peer dependencies; dependencies are references and are not bundled into Marshal tarballs.",
+  "creationInfo": {
+    "created": "1970-01-01T00:00:00Z",
+    "creators": [
+      "Tool: marshal-release-inventory-1"
+    ],
+    "comment": "The fixed timestamp is a deterministic sentinel, not wall-clock generation time."
+  },
+  "packages": [
+    {
+      "SPDXID": "SPDXRef-marshal-agent-runtime-code-intelligence-0.1.0-ab36286829f9",
+      "name": "@marshal/agent-runtime-code-intelligence",
+      "versionInfo": "0.1.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/%40marshal/agent-runtime-code-intelligence@0.1.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-marshal-agent-runtime-codex-capabilities-0.1.0-6742795028be",
+      "name": "@marshal/agent-runtime-codex-capabilities",
+      "versionInfo": "0.1.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/%40marshal/agent-runtime-codex-capabilities@0.1.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-marshal-agent-runtime-codex-0.1.0-c72243bcae07",
+      "name": "@marshal/agent-runtime-codex",
+      "versionInfo": "0.1.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/%40marshal/agent-runtime-codex@0.1.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-marshal-agent-runtime-composer-0.1.0-e8d2cd1768a5",
+      "name": "@marshal/agent-runtime-composer",
+      "versionInfo": "0.1.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/%40marshal/agent-runtime-composer@0.1.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-marshal-agent-runtime-conformance-0.1.0-b5e717413260",
+      "name": "@marshal/agent-runtime-conformance",
+      "versionInfo": "0.1.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/%40marshal/agent-runtime-conformance@0.1.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-marshal-agent-runtime-core-0.1.0-be9e6141b316",
+      "name": "@marshal/agent-runtime-core",
+      "versionInfo": "0.1.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/%40marshal/agent-runtime-core@0.1.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-marshal-agent-runtime-delegation-0.1.0-043b3eb5c7f8",
+      "name": "@marshal/agent-runtime-delegation",
+      "versionInfo": "0.1.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/%40marshal/agent-runtime-delegation@0.1.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-marshal-agent-runtime-dsh-0.1.0-27914289164a",
+      "name": "@marshal/agent-runtime-dsh",
+      "versionInfo": "0.1.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/%40marshal/agent-runtime-dsh@0.1.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-marshal-agent-runtime-effects-0.1.0-6d500f4656af",
+      "name": "@marshal/agent-runtime-effects",
+      "versionInfo": "0.1.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/%40marshal/agent-runtime-effects@0.1.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-marshal-agent-runtime-extensions-0.1.0-cac6d1194a74",
+      "name": "@marshal/agent-runtime-extensions",
+      "versionInfo": "0.1.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/%40marshal/agent-runtime-extensions@0.1.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-marshal-agent-runtime-host-0.1.0-4befa96f2007",
+      "name": "@marshal/agent-runtime-host",
+      "versionInfo": "0.1.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/%40marshal/agent-runtime-host@0.1.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-marshal-agent-runtime-manifest-0.1.0-35bd6dec0434",
+      "name": "@marshal/agent-runtime-manifest",
+      "versionInfo": "0.1.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/%40marshal/agent-runtime-manifest@0.1.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-marshal-agent-runtime-permissions-0.1.0-e2d3c350188b",
+      "name": "@marshal/agent-runtime-permissions",
+      "versionInfo": "0.1.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/%40marshal/agent-runtime-permissions@0.1.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-marshal-agent-runtime-provider-artifacts-0.1.0-24d8a10e6954",
+      "name": "@marshal/agent-runtime-provider-artifacts",
+      "versionInfo": "0.1.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/%40marshal/agent-runtime-provider-artifacts@0.1.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-marshal-agent-runtime-provider-kit-0.1.0-2fd3dc289eaa",
+      "name": "@marshal/agent-runtime-provider-kit",
+      "versionInfo": "0.1.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/%40marshal/agent-runtime-provider-kit@0.1.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-marshal-agent-runtime-typescript-0.1.0-23ffb24e2e8c",
+      "name": "@marshal/agent-runtime-typescript",
+      "versionInfo": "0.1.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/%40marshal/agent-runtime-typescript@0.1.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-marshal-agent-runtime-ui-0.1.0-00106fe611f3",
+      "name": "@marshal/agent-runtime-ui",
+      "versionInfo": "0.1.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/%40marshal/agent-runtime-ui@0.1.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-marshal-codex-0.1.0-61ca0061fa39",
+      "name": "@marshal/codex",
+      "versionInfo": "0.1.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/%40marshal/codex@0.1.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-marshal-runtime-0.1.0-e52f1a571ecf",
+      "name": "@marshal/runtime",
+      "versionInfo": "0.1.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/%40marshal/runtime@0.1.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-modelcontextprotocol-sdk-1.30.0-e24cd3f58c4b",
+      "name": "@modelcontextprotocol/sdk",
+      "versionInfo": "1.30.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/%40modelcontextprotocol/sdk@1.30.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-openai-apps-sdk-ui-0.2.2-3c1bdd6fd771",
+      "name": "@openai/apps-sdk-ui",
+      "versionInfo": "0.2.2",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/%40openai/apps-sdk-ui@0.2.2"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-openai-codex-0.144.6-184d5b1f6ec5",
+      "name": "@openai/codex",
+      "versionInfo": "0.144.6",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/%40openai/codex@0.144.6"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-quillstone-repository-registry-config-0.6.0-e99d6479a594",
+      "name": "@quillstone/repository-registry-config",
+      "versionInfo": "0.6.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/%40quillstone/repository-registry-config@0.6.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-esbuild-0.27.7-1410eec95c92",
+      "name": "esbuild",
+      "versionInfo": "0.27.7",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/esbuild@0.27.7"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-react-dom-18.3.1-d9f4605d037c",
+      "name": "react-dom",
+      "versionInfo": "18.3.1",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/react-dom@18.3.1"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-react-18.3.1-c5be7301bb3c",
+      "name": "react",
+      "versionInfo": "18.3.1",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/react@18.3.1"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-tailwindcss-4.3.3-2344ea804e7d",
+      "name": "tailwindcss",
+      "versionInfo": "4.3.3",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/tailwindcss@4.3.3"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-typescript-5.9.3-44bd9e04e2c2",
+      "name": "typescript",
+      "versionInfo": "5.9.3",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/typescript@5.9.3"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-yaml-2.9.0-be80181ebffd",
+      "name": "yaml",
+      "versionInfo": "2.9.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "ISC",
+      "licenseDeclared": "ISC",
+      "copyrightText": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:npm/yaml@2.9.0"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-code-intelligence-0.1.0-ab36286829f9"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-codex-0.1.0-c72243bcae07"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-codex-capabilities-0.1.0-6742795028be"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-composer-0.1.0-e8d2cd1768a5"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-conformance-0.1.0-b5e717413260"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-core-0.1.0-be9e6141b316"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-delegation-0.1.0-043b3eb5c7f8"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-dsh-0.1.0-27914289164a"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-effects-0.1.0-6d500f4656af"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-extensions-0.1.0-cac6d1194a74"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-host-0.1.0-4befa96f2007"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-manifest-0.1.0-35bd6dec0434"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-permissions-0.1.0-e2d3c350188b"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-provider-artifacts-0.1.0-24d8a10e6954"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-provider-kit-0.1.0-2fd3dc289eaa"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-typescript-0.1.0-23ffb24e2e8c"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-ui-0.1.0-00106fe611f3"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-marshal-codex-0.1.0-61ca0061fa39"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-marshal-runtime-0.1.0-e52f1a571ecf"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-code-intelligence-0.1.0-ab36286829f9",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-composer-0.1.0-e8d2cd1768a5",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-code-intelligence-0.1.0-ab36286829f9",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-core-0.1.0-be9e6141b316",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-code-intelligence-0.1.0-ab36286829f9",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-extensions-0.1.0-cac6d1194a74",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-code-intelligence-0.1.0-ab36286829f9",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-provider-kit-0.1.0-2fd3dc289eaa",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-codex-0.1.0-c72243bcae07",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-codex-capabilities-0.1.0-6742795028be",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-codex-0.1.0-c72243bcae07",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-core-0.1.0-be9e6141b316",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-codex-0.1.0-c72243bcae07",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-delegation-0.1.0-043b3eb5c7f8",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-codex-0.1.0-c72243bcae07",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-extensions-0.1.0-cac6d1194a74",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-codex-0.1.0-c72243bcae07",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-host-0.1.0-4befa96f2007",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-codex-0.1.0-c72243bcae07",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-manifest-0.1.0-35bd6dec0434",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-codex-0.1.0-c72243bcae07",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-ui-0.1.0-00106fe611f3",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-codex-0.1.0-c72243bcae07",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-runtime-0.1.0-e52f1a571ecf",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-codex-0.1.0-c72243bcae07",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-modelcontextprotocol-sdk-1.30.0-e24cd3f58c4b",
+      "comment": "Declared range: ^1.29.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-codex-0.1.0-c72243bcae07",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-openai-codex-0.144.6-184d5b1f6ec5",
+      "comment": "Declared range: ^0.144.5"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-codex-0.1.0-c72243bcae07",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-quillstone-repository-registry-config-0.6.0-e99d6479a594",
+      "comment": "Declared range: 0.2.0"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-codex-0.1.0-c72243bcae07",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-yaml-2.9.0-be80181ebffd",
+      "comment": "Declared range: ^2.8.2"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-codex-capabilities-0.1.0-6742795028be",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-core-0.1.0-be9e6141b316",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-codex-capabilities-0.1.0-6742795028be",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-delegation-0.1.0-043b3eb5c7f8",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-codex-capabilities-0.1.0-6742795028be",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-effects-0.1.0-6d500f4656af",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-codex-capabilities-0.1.0-6742795028be",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-ui-0.1.0-00106fe611f3",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-codex-capabilities-0.1.0-6742795028be",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-openai-apps-sdk-ui-0.2.2-3c1bdd6fd771",
+      "comment": "Declared range: 0.2.2"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-codex-capabilities-0.1.0-6742795028be",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-openai-codex-0.144.6-184d5b1f6ec5",
+      "comment": "Declared range: ^0.144.5"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-codex-capabilities-0.1.0-6742795028be",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-tailwindcss-4.3.3-2344ea804e7d",
+      "comment": "Declared range: 4.3.3"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-composer-0.1.0-e8d2cd1768a5",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-core-0.1.0-be9e6141b316",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-composer-0.1.0-e8d2cd1768a5",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-typescript-5.9.3-44bd9e04e2c2",
+      "comment": "Declared range: ^5.3.2"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-conformance-0.1.0-b5e717413260",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-composer-0.1.0-e8d2cd1768a5",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-conformance-0.1.0-b5e717413260",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-core-0.1.0-be9e6141b316",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-conformance-0.1.0-b5e717413260",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-ui-0.1.0-00106fe611f3",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-delegation-0.1.0-043b3eb5c7f8",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-composer-0.1.0-e8d2cd1768a5",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-delegation-0.1.0-043b3eb5c7f8",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-core-0.1.0-be9e6141b316",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-dsh-0.1.0-27914289164a",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-composer-0.1.0-e8d2cd1768a5",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-dsh-0.1.0-27914289164a",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-core-0.1.0-be9e6141b316",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-dsh-0.1.0-27914289164a",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-extensions-0.1.0-cac6d1194a74",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-dsh-0.1.0-27914289164a",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-ui-0.1.0-00106fe611f3",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-effects-0.1.0-6d500f4656af",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-core-0.1.0-be9e6141b316",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-effects-0.1.0-6d500f4656af",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-delegation-0.1.0-043b3eb5c7f8",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-extensions-0.1.0-cac6d1194a74",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-composer-0.1.0-e8d2cd1768a5",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-extensions-0.1.0-cac6d1194a74",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-core-0.1.0-be9e6141b316",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-extensions-0.1.0-cac6d1194a74",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-ui-0.1.0-00106fe611f3",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-host-0.1.0-4befa96f2007",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-code-intelligence-0.1.0-ab36286829f9",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-host-0.1.0-4befa96f2007",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-composer-0.1.0-e8d2cd1768a5",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-host-0.1.0-4befa96f2007",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-core-0.1.0-be9e6141b316",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-host-0.1.0-4befa96f2007",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-effects-0.1.0-6d500f4656af",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-host-0.1.0-4befa96f2007",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-extensions-0.1.0-cac6d1194a74",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-host-0.1.0-4befa96f2007",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-manifest-0.1.0-35bd6dec0434",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-host-0.1.0-4befa96f2007",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-permissions-0.1.0-e2d3c350188b",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-host-0.1.0-4befa96f2007",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-provider-artifacts-0.1.0-24d8a10e6954",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-host-0.1.0-4befa96f2007",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-provider-kit-0.1.0-2fd3dc289eaa",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-host-0.1.0-4befa96f2007",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-typescript-0.1.0-23ffb24e2e8c",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-host-0.1.0-4befa96f2007",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-ui-0.1.0-00106fe611f3",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-permissions-0.1.0-e2d3c350188b",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-core-0.1.0-be9e6141b316",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-provider-artifacts-0.1.0-24d8a10e6954",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-core-0.1.0-be9e6141b316",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-provider-artifacts-0.1.0-24d8a10e6954",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-provider-kit-0.1.0-2fd3dc289eaa",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-provider-kit-0.1.0-2fd3dc289eaa",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-core-0.1.0-be9e6141b316",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-typescript-0.1.0-23ffb24e2e8c",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-esbuild-0.27.7-1410eec95c92",
+      "comment": "Declared range: ^0.27.2"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-typescript-0.1.0-23ffb24e2e8c",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-composer-0.1.0-e8d2cd1768a5",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-typescript-0.1.0-23ffb24e2e8c",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-core-0.1.0-be9e6141b316",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-typescript-0.1.0-23ffb24e2e8c",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-extensions-0.1.0-cac6d1194a74",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-typescript-0.1.0-23ffb24e2e8c",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-typescript-5.9.3-44bd9e04e2c2",
+      "comment": "Declared range: ^5.3.2"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-ui-0.1.0-00106fe611f3",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-esbuild-0.27.7-1410eec95c92",
+      "comment": "Declared range: ^0.27.2"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-ui-0.1.0-00106fe611f3",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-composer-0.1.0-e8d2cd1768a5",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-ui-0.1.0-00106fe611f3",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-core-0.1.0-be9e6141b316",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-ui-0.1.0-00106fe611f3",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-react-18.3.1-c5be7301bb3c",
+      "comment": "Declared range: 18.3.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-agent-runtime-ui-0.1.0-00106fe611f3",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-react-dom-18.3.1-d9f4605d037c",
+      "comment": "Declared range: 18.3.1"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-codex-0.1.0-61ca0061fa39",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-codex-0.1.0-c72243bcae07",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-codex-0.1.0-61ca0061fa39",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-codex-capabilities-0.1.0-6742795028be",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-codex-0.1.0-61ca0061fa39",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-runtime-0.1.0-e52f1a571ecf",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-runtime-0.1.0-e52f1a571ecf",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-code-intelligence-0.1.0-ab36286829f9",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-runtime-0.1.0-e52f1a571ecf",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-composer-0.1.0-e8d2cd1768a5",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-runtime-0.1.0-e52f1a571ecf",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-conformance-0.1.0-b5e717413260",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-runtime-0.1.0-e52f1a571ecf",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-core-0.1.0-be9e6141b316",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-runtime-0.1.0-e52f1a571ecf",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-delegation-0.1.0-043b3eb5c7f8",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-runtime-0.1.0-e52f1a571ecf",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-effects-0.1.0-6d500f4656af",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-runtime-0.1.0-e52f1a571ecf",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-extensions-0.1.0-cac6d1194a74",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-runtime-0.1.0-e52f1a571ecf",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-host-0.1.0-4befa96f2007",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-runtime-0.1.0-e52f1a571ecf",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-manifest-0.1.0-35bd6dec0434",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-runtime-0.1.0-e52f1a571ecf",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-typescript-0.1.0-23ffb24e2e8c",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-runtime-0.1.0-e52f1a571ecf",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-marshal-agent-runtime-ui-0.1.0-00106fe611f3",
+      "comment": "Declared range: workspace:*"
+    },
+    {
+      "spdxElementId": "SPDXRef-marshal-runtime-0.1.0-e52f1a571ecf",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-modelcontextprotocol-sdk-1.30.0-e24cd3f58c4b",
+      "comment": "Declared range: 1.30.0"
+    }
+  ]
+}

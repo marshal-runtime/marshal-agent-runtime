@@ -1,0 +1,10 @@
+{
+  "name": "account-index-v2",
+  "mode": "dry-run",
+  "stages": [
+    { "id": "snapshot", "status": "complete" },
+    { "id": "transform", "status": "pending" },
+    { "id": "validate", "status": "pending" },
+    { "id": "cutover", "status": "pending" }
+  ]
+}

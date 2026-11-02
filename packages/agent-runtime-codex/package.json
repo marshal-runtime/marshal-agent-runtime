@@ -1,0 +1,77 @@
+{
+  "name": "@marshal/agent-runtime-codex",
+  "version": "0.1.0",
+  "description": "Codex MCP adapter for the portable Marshal agent runtime",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "agent-runtime-codex": "dist/cli.js",
+    "agent-runtime-codex-hook": "dist/hookCli.js",
+    "agent-runtime-codex-install-plugin": "dist/pluginCli.js",
+    "agent-runtime-codex-install-extension": "dist/extensionCli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./hooks": {
+      "types": "./dist/hooks.d.ts",
+      "default": "./dist/hooks.js"
+    },
+    "./cli": {
+      "types": "./dist/cli.d.ts",
+      "default": "./dist/cli.js"
+    },
+    "./hook-cli": {
+      "types": "./dist/hookCli.d.ts",
+      "default": "./dist/hookCli.js"
+    },
+    "./plugin-cli": {
+      "types": "./dist/pluginCli.d.ts",
+      "default": "./dist/pluginCli.js"
+    },
+    "./testing": {
+      "types": "./dist/testing/inMemoryRuntime.d.ts",
+      "default": "./dist/testing/inMemoryRuntime.js"
+    }
+  },
+  "files": [
+    "dist",
+    "!dist/__tests__",
+    "README.md",
+    ".mcp.json.example"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && vitest run",
+    "verify": "npm run typecheck && npm run test"
+  },
+  "dependencies": {
+    "@marshal/agent-runtime-core": "workspace:*",
+    "@marshal/agent-runtime-extensions": "workspace:*",
+    "@marshal/agent-runtime-ui": "workspace:*",
+    "@marshal/agent-runtime-delegation": "workspace:*",
+    "@marshal/agent-runtime-codex-capabilities": "workspace:*",
+    "@marshal/agent-runtime-host": "workspace:*",
+    "@marshal/agent-runtime-manifest": "workspace:*",
+    "@marshal/runtime": "workspace:*",
+    "@quillstone/repository-registry-config": "0.2.0",
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "@openai/codex": "^0.144.5",
+    "yaml": "^2.8.2"
+  },
+  "devDependencies": {
+    "@marshal/agent-runtime-conformance": "workspace:*",
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.2",
+    "vitest": "^3.2.4"
+  },
+  "publishConfig": { "access": "public" },
+  "engines": {
+    "node": ">=24.14.0"
+  },
+  "license": "MIT"
+}

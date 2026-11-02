@@ -1,0 +1,59 @@
+{
+  "evidenceClass": "generated-fixture",
+  "notALiveRun": true,
+  "purpose": "Stable authoritative workspace input for source validation and demo rehearsal; not evidence of autonomous routing, native delegation, persistence, or rendered pixels.",
+  "workspace": {
+    "projectName": "Atlas Launch",
+    "brief": "Create a calm launch-planning workspace that makes tradeoffs visible and supports targeted iteration.",
+    "version": 1,
+    "selectedDirectionId": "guided-momentum",
+    "directions": [
+    {
+      "id": "quiet-systems",
+      "name": "Quiet Systems",
+      "premise": "A restrained token-led workspace with strong hierarchy and low visual noise.",
+      "palette": ["#F4F1EA", "#31463A", "#B9C6B5"],
+      "interaction": "Select a system layer, inspect its tokens, and refine only that layer.",
+      "responsive": {
+        "selectedFrameId": "desktop",
+        "frames": [
+          { "id": "desktop", "label": "Desktop", "width": 1440, "height": 1024, "notes": "Wide comparison canvas with persistent token inspector." },
+          { "id": "mobile", "label": "Mobile", "width": 390, "height": 844, "notes": "Single-column system layers with a collapsible inspector." }
+        ]
+      },
+      "tokens": { "surface": "#F4F1EA", "accent": "#31463A", "support": "#B9C6B5" }
+    },
+    {
+      "id": "guided-momentum",
+      "name": "Guided Momentum",
+      "premise": "A task-forward workspace that turns the launch sequence into explicit next actions.",
+      "palette": ["#FFF7E8", "#C55232", "#263B50"],
+      "interaction": "Move between milestones and issue targeted refinement requests.",
+      "responsive": {
+        "selectedFrameId": "mobile",
+        "frames": [
+          { "id": "desktop", "label": "Desktop", "width": 1440, "height": 1024, "notes": "Milestone rail beside the active launch decision." },
+          { "id": "mobile", "label": "Mobile", "width": 390, "height": 844, "notes": "Focused next-action view with thumb-reachable milestone controls." }
+        ]
+      },
+      "tokens": { "surface": "#FFF7E8", "accent": "#C55232", "ink": "#263B50" }
+    },
+    {
+      "id": "editorial-field",
+      "name": "Editorial Field",
+      "premise": "An editorial canvas that pairs narrative intent with concrete launch decisions.",
+      "palette": ["#F5EFE6", "#5F496D", "#D4A15A"],
+      "interaction": "Compare story panels and save the chosen composition.",
+      "responsive": {
+        "selectedFrameId": "desktop",
+        "frames": [
+          { "id": "desktop", "label": "Desktop", "width": 1440, "height": 1024, "notes": "Editorial spread with decisions pinned beside narrative panels." },
+          { "id": "mobile", "label": "Mobile", "width": 390, "height": 844, "notes": "Stacked story panels with an anchored decision summary." }
+        ]
+      },
+      "tokens": { "surface": "#F5EFE6", "accent": "#5F496D", "highlight": "#D4A15A" }
+    }
+    ],
+    "updatedAt": "2026-08-03T00:00:00.000Z"
+  }
+}

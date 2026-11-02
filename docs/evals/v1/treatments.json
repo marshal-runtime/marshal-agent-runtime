@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1.0.0",
+  "treatments": [
+    {
+      "id": "codex-baseline",
+      "kind": "baseline",
+      "headlineEligible": true,
+      "description": "Stock Codex with its normal shipped tools and skills; Marshal is absent.",
+      "marshal": {
+        "installed": false,
+        "promptForced": false,
+        "capabilities": { "briefing": false, "memory": false, "typescript": false, "ui": false, "subagents": false }
+      }
+    },
+    {
+      "id": "codex-marshal",
+      "kind": "treatment",
+      "headlineEligible": true,
+      "description": "The identical Codex build with Marshal installed and automatic capability routing; prompts never name Marshal.",
+      "marshal": {
+        "installed": true,
+        "promptForced": false,
+        "capabilities": { "briefing": true, "memory": true, "typescript": true, "ui": true, "subagents": true }
+      }
+    },
+    {
+      "id": "marshal-forced",
+      "kind": "diagnostic",
+      "headlineEligible": false,
+      "description": "The prompt explicitly requests Marshal. This measures the capability ceiling, not product discoverability.",
+      "marshal": {
+        "installed": true,
+        "promptForced": true,
+        "capabilities": { "briefing": true, "memory": true, "typescript": true, "ui": true, "subagents": true }
+      }
+    },
+    {
+      "id": "marshal-no-briefing",
+      "kind": "ablation",
+      "headlineEligible": false,
+      "description": "Marshal tools remain available but automatic briefing and routing context are disabled.",
+      "marshal": {
+        "installed": true,
+        "promptForced": false,
+        "capabilities": { "briefing": false, "memory": true, "typescript": true, "ui": true, "subagents": true }
+      }
+    },
+    {
+      "id": "marshal-no-memory",
+      "kind": "ablation",
+      "headlineEligible": false,
+      "description": "Marshal is enabled without persistent memory.",
+      "marshal": {
+        "installed": true,
+        "promptForced": false,
+        "capabilities": { "briefing": true, "memory": false, "typescript": true, "ui": true, "subagents": true }
+      }
+    },
+    {
+      "id": "marshal-no-typescript",
+      "kind": "ablation",
+      "headlineEligible": false,
+      "description": "Marshal is enabled without programmable TypeScript execution.",
+      "marshal": {
+        "installed": true,
+        "promptForced": false,
+        "capabilities": { "briefing": true, "memory": true, "typescript": false, "ui": true, "subagents": true }
+      }
+    },
+    {
+      "id": "marshal-no-ui",
+      "kind": "ablation",
+      "headlineEligible": false,
+      "description": "Marshal is enabled without custom MCP Apps UI.",
+      "marshal": {
+        "installed": true,
+        "promptForced": false,
+        "capabilities": { "briefing": true, "memory": true, "typescript": true, "ui": false, "subagents": true }
+      }
+    },
+    {
+      "id": "marshal-no-subagents",
+      "kind": "ablation",
+      "headlineEligible": false,
+      "description": "Marshal is enabled without delegation and subagent capabilities.",
+      "marshal": {
+        "installed": true,
+        "promptForced": false,
+        "capabilities": { "briefing": true, "memory": true, "typescript": true, "ui": true, "subagents": false }
+      }
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{"at":"2026-01-08T10:04:00Z","service":"checkout","kind":"failure","code":"PAYMENT_TIMEOUT"}
+{"at":"2026-01-08T10:11:00Z","service":"catalog","kind":"failure","code":"CACHE_MISS_STORM"}
+{"at":"2026-01-08T11:02:00Z","service":"checkout","kind":"failure","code":"PAYMENT_TIMEOUT"}
+{"at":"2026-01-08T12:05:00Z","service":"search","kind":"failure","code":"INDEX_LAG"}

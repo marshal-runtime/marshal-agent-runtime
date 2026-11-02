@@ -1,0 +1,33 @@
+{
+  "summary": "Design Studio for Atlas Launch. Three bounded specialist directions, responsive desktop and mobile frames, the selected frame, targeted refinements, and versioned project state remain usable when interactive MCP Apps rendering is unavailable.",
+  "details": {
+    "projectName": "Atlas Launch",
+    "brief": "Create a calm launch-planning workspace that makes tradeoffs visible and supports targeted iteration.",
+    "canonicalState": {
+      "path": "design-studio/workspace.json",
+      "scope": "project",
+      "version": 1,
+      "selectedDirectionId": "guided-momentum",
+      "selectedFrameId": "mobile"
+    },
+    "directions": [
+      { "id": "quiet-systems", "name": "Quiet Systems", "premise": "A restrained token-led workspace with strong hierarchy and low visual noise.", "frames": ["desktop", "mobile"] },
+      { "id": "guided-momentum", "name": "Guided Momentum", "premise": "A task-forward workspace that turns the launch sequence into explicit next actions.", "frames": ["desktop", "mobile"] },
+      { "id": "editorial-field", "name": "Editorial Field", "premise": "An editorial canvas that pairs narrative intent with concrete launch decisions.", "frames": ["desktop", "mobile"] }
+    ],
+    "availableActions": [
+      { "id": "load-workspace", "target": "examples/publication/design-studio/refine-design.ts#loadDesign", "scope": "project", "effect": "read" },
+      { "id": "save-workspace", "target": "examples/publication/design-studio/refine-design.ts#saveDesign", "scope": "project", "effect": "write" },
+      { "id": "refine-design", "target": "examples/publication/design-studio/refine-design.ts#default", "scope": "project", "effect": "read-write" }
+    ],
+    "nonInteractiveProcedure": [
+      "Call load-workspace first and use its workspace as the authoritative render input.",
+      "If no workspace exists yet, seed the bounded fixture through save-workspace with a unique idempotency key.",
+      "Present all directions and frames, preserving selectedDirectionId and each responsive selectedFrameId.",
+      "Call refine-design with projectName, selected directionId, selected frameId, instruction, and the loaded expectedVersion.",
+      "Replace the view with the returned workspace, whose version must increment by one; report the action receipt and nested artifacts.read/artifacts.write receipts.",
+      "Report unsupported presentation or delegation features explicitly; do not claim pixels, persistence, or agents that were not observed."
+    ],
+    "restoration": "On reopen, call load-workspace and render its returned workspace. Redisplay a cached render only when its props still match that authoritative version; do not recompile unless source changed."
+  }
+}

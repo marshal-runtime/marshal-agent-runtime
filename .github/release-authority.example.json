@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "repositoryUrl": null,
+    "homepageUrl": null,
+    "bugsUrl": null
+  },
+  "npm": {
+    "registryUrl": null,
+    "scope": null,
+    "access": null,
+    "tag": null
+  },
+  "release": {
+    "packageVersions": {
+      "@marshal/agent-runtime-code-intelligence": null,
+      "@marshal/agent-runtime-codex": null,
+      "@marshal/agent-runtime-codex-capabilities": null,
+      "@marshal/agent-runtime-composer": null,
+      "@marshal/agent-runtime-conformance": null,
+      "@marshal/agent-runtime-core": null,
+      "@marshal/agent-runtime-delegation": null,
+      "@marshal/agent-runtime-dsh": null,
+      "@marshal/agent-runtime-effects": null,
+      "@marshal/agent-runtime-extensions": null,
+      "@marshal/agent-runtime-host": null,
+      "@marshal/agent-runtime-manifest": null,
+      "@marshal/agent-runtime-permissions": null,
+      "@marshal/agent-runtime-provider-artifacts": null,
+      "@marshal/agent-runtime-provider-kit": null,
+      "@marshal/agent-runtime-typescript": null,
+      "@marshal/agent-runtime-ui": null,
+      "@marshal/codex": null,
+      "@marshal/runtime": null
+    }
+  },
+  "licenses": {
+    "approvedExpressions": null,
+    "reviewReference": null
+  },
+  "github": {
+    "serverUrl": null,
+    "repository": null,
+    "environment": null,
+    "workflowPath": ".github/workflows/publish.yml",
+    "trustedPublisher": {
+      "owner": null,
+      "repository": null,
+      "workflowFilename": "publish.yml",
+      "environment": null
+    }
+  }
+}

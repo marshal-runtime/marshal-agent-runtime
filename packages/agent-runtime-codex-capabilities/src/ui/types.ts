@@ -1,0 +1,15 @@
+export type {
+  DeclarativeUiDocument,
+  McpAppsResourceContent,
+  McpAppsResourceDescriptor,
+  McpAppsResourcePort,
+  McpAppsToolMetadata,
+  UiActionBinding,
+  UiArtifact,
+  UiArtifactRevisionReference,
+  UiArtifactSummary,
+  UiNode,
+  UiOperationInvoker,
+  UiScalar,
+  UiTone,
+} from '@marshal/agent-runtime-ui/declarative';

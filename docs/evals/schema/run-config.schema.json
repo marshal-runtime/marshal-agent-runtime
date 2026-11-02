@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://marshal.dev/schemas/evals/run-config-1.0.0.json",
+  "title": "Marshal matched evaluation run configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "runId", "corpus", "repetitions", "seed", "adapter", "fixed", "inputs"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "runId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]+$" },
+    "corpus": { "type": "string", "minLength": 1 },
+    "output": { "type": "string", "minLength": 1 },
+    "repetitions": { "type": "integer", "minimum": 3 },
+    "seed": { "type": "string", "minLength": 8 },
+    "adapter": {
+      "oneOf": [
+        {
+          "type": "object", "additionalProperties": false, "required": ["kind"],
+          "properties": { "kind": { "const": "dry-run" } }
+        },
+        {
+          "type": "object", "additionalProperties": false,
+          "required": ["kind", "resultsFile", "resultsSha256"],
+          "properties": {
+            "kind": { "const": "fixture" },
+            "resultsFile": { "type": "string", "minLength": 1 },
+            "resultsSha256": { "$ref": "#/$defs/digest" }
+          }
+        },
+        {
+          "type": "object", "additionalProperties": false,
+          "required": ["kind", "command", "driverFile", "driverDigest"],
+          "properties": {
+            "kind": { "const": "command" },
+            "command": { "type": "string", "minLength": 1 },
+            "args": { "type": "array", "items": { "type": "string" } },
+            "cwd": { "type": "string", "minLength": 1 },
+            "driverFile": { "type": "string", "minLength": 1 },
+            "driverDigest": { "$ref": "#/$defs/digest" },
+            "driverDependencies": { "type": "array", "items": { "$ref": "#/$defs/input" } },
+            "driverOptions": { "type": "object", "additionalProperties": true }
+          }
+        }
+      ]
+    },
+    "fixed": {
+      "type": "object", "additionalProperties": false,
+      "required": ["harness", "harnessVersion", "model", "reasoning", "repositoryCommit", "repositoryDirty", "os", "maxRetries", "maxOutputBytes"],
+      "properties": {
+        "harness": { "type": "string", "minLength": 1 },
+        "harnessVersion": { "type": "string", "minLength": 1 },
+        "model": { "type": "string", "minLength": 1 },
+        "reasoning": { "type": "string", "minLength": 1 },
+        "repositoryCommit": { "type": "string", "minLength": 7 },
+        "repositoryDirty": { "type": "boolean" },
+        "os": { "type": "string", "minLength": 1 },
+        "maxRetries": { "type": "integer", "minimum": 0 },
+        "maxOutputBytes": { "type": "integer", "minimum": 1024 }
+      }
+    },
+    "inputs": {
+      "type": "object", "additionalProperties": false,
+      "required": ["toolManifest", "fixtureManifest", "networkFixture"],
+      "properties": {
+        "toolManifest": { "$ref": "#/$defs/input" },
+        "fixtureManifest": { "$ref": "#/$defs/input" },
+        "networkFixture": { "$ref": "#/$defs/input" }
+      }
+    },
+    "selection": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "caseIds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string" } },
+        "treatmentIds": { "type": "array", "minItems": 2, "maxItems": 2, "uniqueItems": true, "items": { "type": "string" } }
+      }
+    },
+    "redactions": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } }
+  },
+  "$defs": {
+    "digest": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "input": {
+      "type": "object", "additionalProperties": false, "required": ["path", "sha256"],
+      "properties": { "path": { "type": "string", "minLength": 1 }, "sha256": { "$ref": "#/$defs/digest" } }
+    }
+  }
+}

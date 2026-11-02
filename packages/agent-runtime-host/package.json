@@ -1,0 +1,59 @@
+{
+  "name": "@marshal/agent-runtime-host",
+  "version": "0.1.0",
+  "description": "Infrastructure-only local host for explicit Marshal runtime composition",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./lifecycle": {
+      "types": "./dist/lifecycle.d.ts",
+      "default": "./dist/lifecycle.js"
+    },
+    "./session-briefing": {
+      "types": "./dist/sessionBriefing.d.ts",
+      "default": "./dist/sessionBriefing.js"
+    },
+    "./state": {
+      "types": "./dist/state.d.ts",
+      "default": "./dist/state.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --config vitest.config.ts"
+  },
+  "dependencies": {
+    "@marshal/agent-runtime-code-intelligence": "workspace:*",
+    "@marshal/agent-runtime-composer": "workspace:*",
+    "@marshal/agent-runtime-core": "workspace:*",
+    "@marshal/agent-runtime-effects": "workspace:*",
+    "@marshal/agent-runtime-extensions": "workspace:*",
+    "@marshal/agent-runtime-manifest": "workspace:*",
+    "@marshal/agent-runtime-permissions": "workspace:*",
+    "@marshal/agent-runtime-provider-artifacts": "workspace:*",
+    "@marshal/agent-runtime-provider-kit": "workspace:*",
+    "@marshal/agent-runtime-typescript": "workspace:*",
+    "@marshal/agent-runtime-ui": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.2",
+    "vitest": "^3.2.4"
+  },
+  "publishConfig": { "access": "public" },
+  "engines": {
+    "node": ">=24.14.0"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,40 @@
+{
+  "name": "@marshal/codex",
+  "version": "0.1.0",
+  "description": "Marshal Codex adapter, host integrations, plugin projection, and default composition",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "agent-runtime-codex": "dist/cli.js",
+    "agent-runtime-codex-hook": "dist/hookCli.js",
+    "agent-runtime-codex-install-plugin": "dist/pluginCli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./capabilities": {
+      "types": "./dist/capabilities.d.ts",
+      "default": "./dist/capabilities.js"
+    }
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@marshal/runtime": "workspace:*",
+    "@marshal/agent-runtime-codex": "workspace:*",
+    "@marshal/agent-runtime-codex-capabilities": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "25.9.5",
+    "typescript": "5.9.3"
+  },
+  "publishConfig": { "access": "public" },
+  "engines": { "node": ">=24.14.0" },
+  "license": "MIT"
+}

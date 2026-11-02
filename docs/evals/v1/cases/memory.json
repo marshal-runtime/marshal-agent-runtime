@@ -1,0 +1,140 @@
+{
+  "schemaVersion": "1.0.0",
+  "family": "memory",
+  "cases": [
+    {
+      "id": "memory-explicit-cross-task-recall",
+      "title": "Recall an explicit preference in a fresh task",
+      "intent": "Measure durable owner-scoped recall without repeating the fact in the probe prompt.",
+      "promptPolicy": { "mentionsMarshal": false, "mentionsImplementation": false },
+      "phases": [
+        {
+          "id": "store",
+          "taskBoundary": "new-task",
+          "workspace": "fixture://project-alpha",
+          "prompt": "Remember that I prefer release summaries grouped by user impact, with infrastructure details last."
+        },
+        {
+          "id": "probe",
+          "taskBoundary": "new-task",
+          "workspace": "fixture://project-beta",
+          "prompt": "Summarize these release notes in my preferred format.",
+          "fixture": "release-notes-2026-08"
+        }
+      ],
+      "targetCapabilities": ["memory"],
+      "budgets": { "timeoutMs": 180000, "maxTurns": 2 },
+      "scoring": {
+        "primary": "memory-recall",
+        "assertions": [
+          { "id": "preference-recalled", "kind": "response", "description": "Groups the summary by user impact and places infrastructure details last.", "weight": 0.7 },
+          { "id": "no-user-reprompt", "kind": "absence", "description": "Does not ask the user to restate the preference.", "weight": 0.2 },
+          { "id": "recall-is-attributable", "kind": "trace", "description": "Evidence records the memory source and scope when available.", "weight": 0.1 }
+        ]
+      }
+    },
+    {
+      "id": "memory-correction-supersedes-old-value",
+      "title": "Use a corrected preference instead of stale memory",
+      "intent": "Measure temporal correction and suppression of superseded information.",
+      "promptPolicy": { "mentionsMarshal": false, "mentionsImplementation": false },
+      "phases": [
+        {
+          "id": "initial",
+          "taskBoundary": "new-task",
+          "workspace": "fixture://project-alpha",
+          "prompt": "Remember that status reports should use a Monday-to-Sunday reporting week."
+        },
+        {
+          "id": "correct",
+          "taskBoundary": "new-task",
+          "workspace": "fixture://project-alpha",
+          "prompt": "Correction: from now on, our reporting week runs Saturday through Friday. Remember the new convention."
+        },
+        {
+          "id": "probe",
+          "taskBoundary": "new-task",
+          "workspace": "fixture://project-alpha",
+          "prompt": "Prepare the headings and date ranges for the next two weekly status reports."
+        }
+      ],
+      "targetCapabilities": ["memory"],
+      "budgets": { "timeoutMs": 240000, "maxTurns": 3 },
+      "scoring": {
+        "primary": "memory-recall",
+        "assertions": [
+          { "id": "new-convention-used", "kind": "state", "description": "Uses Saturday-through-Friday date ranges.", "weight": 0.65 },
+          { "id": "old-convention-suppressed", "kind": "absence", "description": "Does not present Monday-through-Sunday as current.", "weight": 0.25 },
+          { "id": "correction-provenance", "kind": "trace", "description": "Trace distinguishes the correction from the superseded value.", "weight": 0.1 }
+        ]
+      }
+    },
+    {
+      "id": "memory-project-scope-isolation",
+      "title": "Do not leak a project-scoped secret",
+      "intent": "Measure strict project ownership boundaries during retrieval.",
+      "promptPolicy": { "mentionsMarshal": false, "mentionsImplementation": false },
+      "phases": [
+        {
+          "id": "store",
+          "taskBoundary": "new-task",
+          "workspace": "fixture://project-alpha",
+          "prompt": "For this project only, remember that the internal launch codename is Cedar Lantern."
+        },
+        {
+          "id": "probe-other-project",
+          "taskBoundary": "new-task",
+          "workspace": "fixture://project-beta",
+          "prompt": "What launch codename should I use for this project? If none is established, say so."
+        },
+        {
+          "id": "probe-original-project",
+          "taskBoundary": "new-task",
+          "workspace": "fixture://project-alpha",
+          "prompt": "What is this project's launch codename?"
+        }
+      ],
+      "targetCapabilities": ["memory"],
+      "budgets": { "timeoutMs": 240000, "maxTurns": 3 },
+      "scoring": {
+        "primary": "memory-recall",
+        "assertions": [
+          { "id": "no-cross-project-leak", "kind": "absence", "description": "Does not reveal Cedar Lantern in project beta.", "weight": 0.6 },
+          { "id": "original-project-recall", "kind": "response", "description": "Recalls Cedar Lantern in project alpha.", "weight": 0.3 },
+          { "id": "scope-trace", "kind": "trace", "description": "Evidence records project-scoped storage and retrieval.", "weight": 0.1 }
+        ]
+      }
+    },
+    {
+      "id": "memory-irrelevant-context-rejection",
+      "title": "Avoid injecting unrelated remembered facts",
+      "intent": "Measure memory precision and ordinary-task non-interference.",
+      "promptPolicy": { "mentionsMarshal": false, "mentionsImplementation": false },
+      "phases": [
+        {
+          "id": "seed",
+          "taskBoundary": "new-task",
+          "workspace": "fixture://project-alpha",
+          "prompt": "Remember that customer research interviews are tagged by region before industry."
+        },
+        {
+          "id": "probe",
+          "taskBoundary": "new-task",
+          "workspace": "fixture://project-alpha",
+          "prompt": "Review the provided retry helper and explain whether its exponential backoff can overflow.",
+          "fixture": "retry-helper-typescript"
+        }
+      ],
+      "targetCapabilities": ["memory"],
+      "budgets": { "timeoutMs": 180000, "maxTurns": 2 },
+      "scoring": {
+        "primary": "memory-recall",
+        "assertions": [
+          { "id": "unrelated-memory-absent", "kind": "absence", "description": "Does not inject or mention the research-tagging preference.", "weight": 0.45 },
+          { "id": "technical-answer-correct", "kind": "response", "description": "Correctly analyzes the retry helper.", "weight": 0.45 },
+          { "id": "no-unnecessary-retrieval", "kind": "trace", "description": "Avoids irrelevant retrieval or rejects irrelevant candidates.", "weight": 0.1 }
+        ]
+      }
+    }
+  ]
+}

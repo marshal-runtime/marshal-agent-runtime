@@ -1,0 +1,351 @@
+{
+  "version": "1.0.0",
+  "presentationModes": ["inline", "fullscreen", "pip"],
+  "actions": [
+    {
+      "id": "refine-design",
+      "version": "2.0.0",
+      "title": "Refine selected responsive frame",
+      "description": "Load the authoritative project workspace, update only its selected direction and responsive frame, increment its version, and persist it atomically as a project artifact.",
+      "target": { "kind": "module", "module": { "kind": "workspace_file", "path": "examples/publication/design-studio/refine-design.ts", "export": "default" } },
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "projectName": { "type": "string", "minLength": 1, "maxLength": 128 },
+          "directionId": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$" },
+          "frameId": { "type": "string", "minLength": 1, "maxLength": 128, "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$" },
+          "instruction": { "type": "string", "minLength": 1, "maxLength": 4000 },
+          "expectedVersion": { "type": "integer", "minimum": 1 }
+        },
+        "required": ["projectName", "directionId", "frameId", "instruction", "expectedVersion"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$defs": {
+          "workspace": {
+            "type": "object",
+            "properties": {
+              "projectName": { "type": "string", "minLength": 1, "maxLength": 128 },
+              "brief": { "type": "string", "minLength": 1, "maxLength": 4000 },
+              "version": { "type": "integer", "minimum": 1 },
+              "selectedDirectionId": { "type": "string", "minLength": 1, "maxLength": 128 },
+              "directions": { "type": "array", "minItems": 1, "maxItems": 12, "items": { "$ref": "#/$defs/direction" } },
+              "updatedAt": { "type": "string", "minLength": 1, "maxLength": 64 }
+            },
+            "required": ["projectName", "version", "selectedDirectionId", "directions", "updatedAt"],
+            "additionalProperties": false
+          },
+          "direction": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string", "minLength": 1, "maxLength": 128 },
+              "name": { "type": "string", "minLength": 1, "maxLength": 80 },
+              "premise": { "type": "string", "minLength": 1, "maxLength": 800 },
+              "palette": { "type": "array", "minItems": 3, "maxItems": 3, "items": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" } },
+              "interaction": { "type": "string", "minLength": 1, "maxLength": 800 },
+              "responsive": { "$ref": "#/$defs/responsive" },
+              "tokens": { "type": "object", "maxProperties": 64, "additionalProperties": { "type": "string", "maxLength": 256 } }
+            },
+            "required": ["id", "name", "premise", "palette", "interaction"],
+            "additionalProperties": false
+          },
+          "responsive": {
+            "type": "object",
+            "properties": {
+              "selectedFrameId": { "type": "string", "minLength": 1, "maxLength": 128 },
+              "frames": { "type": "array", "minItems": 1, "maxItems": 8, "items": { "$ref": "#/$defs/frame" } }
+            },
+            "required": ["selectedFrameId", "frames"],
+            "additionalProperties": false
+          },
+          "frame": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string", "minLength": 1, "maxLength": 128 },
+              "label": { "type": "string", "minLength": 1, "maxLength": 80 },
+              "width": { "type": "integer", "minimum": 240, "maximum": 8192 },
+              "height": { "type": "integer", "minimum": 240, "maximum": 8192 },
+              "notes": { "type": "string", "minLength": 1, "maxLength": 800 },
+              "refinement": { "type": "string", "minLength": 1, "maxLength": 4000 },
+              "updatedAt": { "type": "string", "minLength": 1, "maxLength": 64 }
+            },
+            "required": ["id", "label", "width", "height"],
+            "additionalProperties": false
+          },
+          "artifact": {
+            "type": "object",
+            "properties": {
+              "path": { "const": "design-studio/workspace.json" },
+              "sizeBytes": { "type": "integer", "minimum": 1, "maximum": 100000 },
+              "mediaType": { "const": "application/json" },
+              "scope": { "type": "object", "maxProperties": 8, "additionalProperties": { "type": "string" } }
+            },
+            "required": ["path", "sizeBytes", "scope"],
+            "additionalProperties": false
+          }
+        },
+        "type": "object",
+        "properties": {
+          "workspace": { "$ref": "#/$defs/workspace" },
+          "artifact": { "$ref": "#/$defs/artifact" },
+          "refinement": {
+            "type": "object",
+            "properties": {
+              "projectName": { "type": "string", "minLength": 1, "maxLength": 128 },
+              "directionId": { "type": "string", "minLength": 1, "maxLength": 128 },
+              "frameId": { "type": "string", "minLength": 1, "maxLength": 128 },
+              "instruction": { "type": "string", "minLength": 1, "maxLength": 4000 },
+              "editBoundary": { "const": "selected-direction-responsive-frame-only" },
+              "previousVersion": { "type": "integer", "minimum": 1 },
+              "nextVersion": { "type": "integer", "minimum": 2 },
+              "updatedAt": { "type": "string", "minLength": 1, "maxLength": 64 }
+            },
+            "required": ["projectName", "directionId", "frameId", "instruction", "editBoundary", "previousVersion", "nextVersion", "updatedAt"],
+            "additionalProperties": false
+          }
+        },
+        "required": ["workspace", "artifact", "refinement"],
+        "additionalProperties": false
+      },
+      "allowedScopes": ["project"],
+      "requiredPermissions": ["runtime.module.execute", "artifacts.read", "artifacts.write"],
+      "risk": "write",
+      "idempotency": "required"
+    },
+    {
+      "id": "save-workspace",
+      "version": "2.0.0",
+      "title": "Save authoritative design workspace",
+      "description": "Validate and persist the complete selected project workspace at its canonical project artifact path.",
+      "target": { "kind": "module", "module": { "kind": "workspace_file", "path": "examples/publication/design-studio/refine-design.ts", "export": "saveDesign" } },
+      "inputSchema": {
+        "$defs": {
+          "direction": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string", "minLength": 1, "maxLength": 128 },
+              "name": { "type": "string", "minLength": 1, "maxLength": 80 },
+              "premise": { "type": "string", "minLength": 1, "maxLength": 800 },
+              "palette": { "type": "array", "minItems": 3, "maxItems": 3, "items": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" } },
+              "interaction": { "type": "string", "minLength": 1, "maxLength": 800 },
+              "responsive": {
+                "type": "object",
+                "properties": {
+                  "selectedFrameId": { "type": "string", "minLength": 1, "maxLength": 128 },
+                  "frames": {
+                    "type": "array", "minItems": 1, "maxItems": 8,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": { "type": "string", "minLength": 1, "maxLength": 128 },
+                        "label": { "type": "string", "minLength": 1, "maxLength": 80 },
+                        "width": { "type": "integer", "minimum": 240, "maximum": 8192 },
+                        "height": { "type": "integer", "minimum": 240, "maximum": 8192 },
+                        "notes": { "type": "string", "minLength": 1, "maxLength": 800 },
+                        "refinement": { "type": "string", "minLength": 1, "maxLength": 4000 },
+                        "updatedAt": { "type": "string", "minLength": 1, "maxLength": 64 }
+                      },
+                      "required": ["id", "label", "width", "height"],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": ["selectedFrameId", "frames"],
+                "additionalProperties": false
+              },
+              "tokens": { "type": "object", "maxProperties": 64, "additionalProperties": { "type": "string", "maxLength": 256 } }
+            },
+            "required": ["id", "name", "premise", "palette", "interaction"],
+            "additionalProperties": false
+          }
+        },
+        "type": "object",
+        "properties": {
+          "workspace": {
+            "type": "object",
+            "properties": {
+              "projectName": { "type": "string", "minLength": 1, "maxLength": 128 },
+              "brief": { "type": "string", "minLength": 1, "maxLength": 4000 },
+              "version": { "type": "integer", "minimum": 1 },
+              "selectedDirectionId": { "type": "string", "minLength": 1, "maxLength": 128 },
+              "directions": { "type": "array", "minItems": 1, "maxItems": 12, "items": { "$ref": "#/$defs/direction" } },
+              "updatedAt": { "type": "string", "minLength": 1, "maxLength": 64 }
+            },
+            "required": ["projectName", "version", "selectedDirectionId", "directions", "updatedAt"],
+            "additionalProperties": false
+          }
+        },
+        "required": ["workspace"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$defs": {
+          "workspace": {
+            "type": "object",
+            "properties": {
+              "projectName": { "type": "string", "minLength": 1, "maxLength": 128 },
+              "brief": { "type": "string", "minLength": 1, "maxLength": 4000 },
+              "version": { "type": "integer", "minimum": 1 },
+              "selectedDirectionId": { "type": "string", "minLength": 1, "maxLength": 128 },
+              "directions": { "type": "array", "minItems": 1, "maxItems": 12, "items": { "$ref": "#/$defs/direction" } },
+              "updatedAt": { "type": "string", "minLength": 1, "maxLength": 64 }
+            },
+            "required": ["projectName", "version", "selectedDirectionId", "directions", "updatedAt"],
+            "additionalProperties": false
+          },
+          "direction": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string", "minLength": 1, "maxLength": 128 },
+              "name": { "type": "string", "minLength": 1, "maxLength": 80 },
+              "premise": { "type": "string", "minLength": 1, "maxLength": 800 },
+              "palette": { "type": "array", "minItems": 3, "maxItems": 3, "items": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" } },
+              "interaction": { "type": "string", "minLength": 1, "maxLength": 800 },
+              "responsive": { "$ref": "#/$defs/responsive" },
+              "tokens": { "type": "object", "maxProperties": 64, "additionalProperties": { "type": "string", "maxLength": 256 } }
+            },
+            "required": ["id", "name", "premise", "palette", "interaction"],
+            "additionalProperties": false
+          },
+          "responsive": {
+            "type": "object",
+            "properties": {
+              "selectedFrameId": { "type": "string", "minLength": 1, "maxLength": 128 },
+              "frames": { "type": "array", "minItems": 1, "maxItems": 8, "items": { "$ref": "#/$defs/frame" } }
+            },
+            "required": ["selectedFrameId", "frames"],
+            "additionalProperties": false
+          },
+          "frame": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string", "minLength": 1, "maxLength": 128 },
+              "label": { "type": "string", "minLength": 1, "maxLength": 80 },
+              "width": { "type": "integer", "minimum": 240, "maximum": 8192 },
+              "height": { "type": "integer", "minimum": 240, "maximum": 8192 },
+              "notes": { "type": "string", "minLength": 1, "maxLength": 800 },
+              "refinement": { "type": "string", "minLength": 1, "maxLength": 4000 },
+              "updatedAt": { "type": "string", "minLength": 1, "maxLength": 64 }
+            },
+            "required": ["id", "label", "width", "height"],
+            "additionalProperties": false
+          }
+        },
+        "type": "object",
+        "properties": {
+          "workspace": { "$ref": "#/$defs/workspace" },
+          "artifact": {
+            "type": "object",
+            "properties": {
+              "path": { "const": "design-studio/workspace.json" },
+              "sizeBytes": { "type": "integer", "minimum": 1, "maximum": 100000 },
+              "mediaType": { "const": "application/json" },
+              "scope": { "type": "object", "maxProperties": 8, "additionalProperties": { "type": "string" } }
+            },
+            "required": ["path", "sizeBytes", "scope"],
+            "additionalProperties": false
+          }
+        },
+        "required": ["workspace", "artifact"],
+        "additionalProperties": false
+      },
+      "allowedScopes": ["project"],
+      "requiredPermissions": ["runtime.module.execute", "artifacts.write"],
+      "risk": "write",
+      "idempotency": "required"
+    },
+    {
+      "id": "load-workspace",
+      "version": "2.0.0",
+      "title": "Load authoritative design workspace",
+      "description": "Read and schema-validate the canonical project design workspace before rendering or refinement.",
+      "target": { "kind": "module", "module": { "kind": "workspace_file", "path": "examples/publication/design-studio/refine-design.ts", "export": "loadDesign" } },
+      "inputSchema": {
+        "type": "object",
+        "properties": { "projectName": { "type": "string", "minLength": 1, "maxLength": 128 } },
+        "required": ["projectName"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$defs": {
+          "workspace": {
+            "type": "object",
+            "properties": {
+              "projectName": { "type": "string", "minLength": 1, "maxLength": 128 },
+              "brief": { "type": "string", "minLength": 1, "maxLength": 4000 },
+              "version": { "type": "integer", "minimum": 1 },
+              "selectedDirectionId": { "type": "string", "minLength": 1, "maxLength": 128 },
+              "directions": { "type": "array", "minItems": 1, "maxItems": 12, "items": { "$ref": "#/$defs/direction" } },
+              "updatedAt": { "type": "string", "minLength": 1, "maxLength": 64 }
+            },
+            "required": ["projectName", "version", "selectedDirectionId", "directions", "updatedAt"],
+            "additionalProperties": false
+          },
+          "direction": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string", "minLength": 1, "maxLength": 128 },
+              "name": { "type": "string", "minLength": 1, "maxLength": 80 },
+              "premise": { "type": "string", "minLength": 1, "maxLength": 800 },
+              "palette": { "type": "array", "minItems": 3, "maxItems": 3, "items": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" } },
+              "interaction": { "type": "string", "minLength": 1, "maxLength": 800 },
+              "responsive": { "$ref": "#/$defs/responsive" },
+              "tokens": { "type": "object", "maxProperties": 64, "additionalProperties": { "type": "string", "maxLength": 256 } }
+            },
+            "required": ["id", "name", "premise", "palette", "interaction"],
+            "additionalProperties": false
+          },
+          "responsive": {
+            "type": "object",
+            "properties": {
+              "selectedFrameId": { "type": "string", "minLength": 1, "maxLength": 128 },
+              "frames": { "type": "array", "minItems": 1, "maxItems": 8, "items": { "$ref": "#/$defs/frame" } }
+            },
+            "required": ["selectedFrameId", "frames"],
+            "additionalProperties": false
+          },
+          "frame": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string", "minLength": 1, "maxLength": 128 },
+              "label": { "type": "string", "minLength": 1, "maxLength": 80 },
+              "width": { "type": "integer", "minimum": 240, "maximum": 8192 },
+              "height": { "type": "integer", "minimum": 240, "maximum": 8192 },
+              "notes": { "type": "string", "minLength": 1, "maxLength": 800 },
+              "refinement": { "type": "string", "minLength": 1, "maxLength": 4000 },
+              "updatedAt": { "type": "string", "minLength": 1, "maxLength": 64 }
+            },
+            "required": ["id", "label", "width", "height"],
+            "additionalProperties": false
+          }
+        },
+        "type": "object",
+        "properties": {
+          "workspace": { "$ref": "#/$defs/workspace" },
+          "artifact": {
+            "type": "object",
+            "properties": {
+              "path": { "const": "design-studio/workspace.json" },
+              "content": { "type": "string", "minLength": 1, "maxLength": 100000 },
+              "encoding": { "const": "utf8" },
+              "sizeBytes": { "type": "integer", "minimum": 1, "maximum": 100000 },
+              "scope": { "type": "object", "maxProperties": 8, "additionalProperties": { "type": "string" } }
+            },
+            "required": ["path", "content", "encoding", "sizeBytes", "scope"],
+            "additionalProperties": false
+          }
+        },
+        "required": ["workspace", "artifact"],
+        "additionalProperties": false
+      },
+      "allowedScopes": ["project"],
+      "requiredPermissions": ["runtime.module.execute", "artifacts.read"],
+      "risk": "read",
+      "idempotency": "none"
+    }
+  ],
+  "tools": [],
+  "localState": { "scope": "project", "schemaVersion": "2.0.0" },
+  "authoritativeState": { "capability": "artifacts.read", "resourceId": "design-studio/workspace.json", "version": "2.0.0" },
+  "authoringProfile": { "id": "marshal-standards", "version": "1.0.0" }
+}

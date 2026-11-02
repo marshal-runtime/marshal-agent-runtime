@@ -1,0 +1,35 @@
+{
+  "portable": [
+    "agent-runtime-code-intelligence",
+    "agent-runtime-composer",
+    "agent-runtime-core",
+    "agent-runtime-delegation",
+    "agent-runtime-effects",
+    "agent-runtime-extensions",
+    "agent-runtime-manifest",
+    "agent-runtime-permissions",
+    "agent-runtime-provider-artifacts",
+    "agent-runtime-provider-kit",
+    "agent-runtime-typescript",
+    "agent-runtime-ui",
+    "agent-runtime-host",
+    "agent-runtime-conformance",
+    "runtime"
+  ],
+  "adapters": [
+    "agent-runtime-dsh",
+    "codex",
+    "agent-runtime-codex-capabilities",
+    "agent-runtime-codex"
+  ],
+  "forbiddenPortableDependencies": [
+    "@openai/codex",
+    "electron",
+    "@marshal/agent-runtime-adapter-codex",
+    "@marshal/agent-runtime-codex",
+    "@marshal/agent-runtime-codex-capabilities"
+  ],
+  "forbiddenPortableDependencyPrefixes": [
+    "@electron/"
+  ]
+}

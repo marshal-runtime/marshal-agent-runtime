@@ -1,0 +1,9 @@
+{
+  "summary": "Adaptive status panel. It requests inline, fullscreen, or picture-in-picture only when the host advertises the mode; denial or unsupported modes remain explicit and the content stays usable inline.",
+  "details": {
+    "declaredModes": ["inline", "fullscreen", "pip"],
+    "portableFallbackMode": "inline",
+    "statusValues": ["granted", "unsupported", "denied", "fallback"],
+    "nonInteractiveContent": "The panel reports the requested mode, actual mode, status, and reason. No data or action is hidden when a larger mode is unavailable."
+  }
+}

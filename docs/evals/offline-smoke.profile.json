@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0.0",
+  "runId": "offline-smoke-preflight-v1",
+  "seed": "offline-smoke-v1",
+  "fullCorpus": {
+    "runId": "offline-full-corpus-preflight-v1",
+    "seed": "offline-full-corpus-v1"
+  },
+  "repetitions": 3,
+  "selection": {
+    "caseIds": ["control-read-only-architecture-answer"],
+    "treatmentIds": ["codex-baseline", "codex-marshal"]
+  },
+  "codexPackage": "@openai/codex",
+  "marshalPluginId": "marshal-runtime@personal",
+  "allowModelInvocation": false,
+  "networkPolicy": "deny-all-agent-network"
+}

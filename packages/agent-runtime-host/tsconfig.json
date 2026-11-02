@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ES2022",
+    "lib": ["ES2022"],
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "moduleResolution": "bundler",
+    "rootDir": "src",
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "@marshal/agent-runtime-core": ["../agent-runtime-core/dist/index.d.ts"],
+      "@marshal/agent-runtime-effects": ["../agent-runtime-effects/dist/index.d.ts"],
+      "@marshal/agent-runtime-permissions": ["../agent-runtime-permissions/dist/index.d.ts"],
+      "@marshal/agent-runtime-provider-artifacts": ["../agent-runtime-provider-artifacts/dist/index.d.ts"],
+      "@marshal/agent-runtime-provider-kit": ["../agent-runtime-provider-kit/dist/index.d.ts"],
+      "@marshal/agent-runtime-typescript": ["../agent-runtime-typescript/dist/index.d.ts"]
+    }
+  },
+  "include": ["src"]
+}

@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "1.0.0",
+  "corpusVersion": "v1",
+  "status": "frozen",
+  "frozenAt": "2026-08-01",
+  "baselineStatus": "not-captured",
+  "headlineComparison": {
+    "controlTreatmentId": "codex-baseline",
+    "marshalTreatmentId": "codex-marshal"
+  },
+  "caseFiles": [
+    "cases/routing.json",
+    "cases/memory.json",
+    "cases/execution.json",
+    "cases/ui.json",
+    "cases/control.json"
+  ],
+  "treatmentsFile": "treatments.json",
+  "frozenFiles": {
+    "treatments.json": "88bd52902869393e277cc91cfdedf905a73b94e9c815aa2cb5b74886bdb74655",
+    "cases/routing.json": "088bab4c07de92f7e470666e62072fed6f71247accd5ed4135d7cf60a353d707",
+    "cases/memory.json": "f9b25e869ebe419bbcd5c80b65e0dfc9404829b068d60c5321e48020ef2315c9",
+    "cases/execution.json": "ce119fd3006ed02bc24b10197a6f1f78eed963c164b06ae3e7d457cbc2bb0779",
+    "cases/ui.json": "041a381fd035cb28a5641288820df207b86d24dd66c83fc23e951a97a5bbe84c",
+    "cases/control.json": "2a1dd67c0eb7d339c662d696e21f1ddbf83c3fd7e59e3f4856bbbe06213258b0"
+  },
+  "runPolicy": {
+    "minimumRepetitions": 3,
+    "paired": true,
+    "randomizedOrder": true,
+    "publishAllAttempts": true
+  },
+  "releaseClaimPolicy": {
+    "primaryMetric": "weighted-task-success",
+    "confidenceInterval": 0.95,
+    "controlRegressionLimitPercentagePoints": 5
+  }
+}

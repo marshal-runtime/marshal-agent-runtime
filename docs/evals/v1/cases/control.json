@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.0.0",
+  "family": "control",
+  "cases": [
+    {
+      "id": "control-small-code-fix",
+      "title": "Complete an ordinary local code fix",
+      "intent": "Detect latency or quality regressions on coding work that needs no persistent runtime capability.",
+      "promptPolicy": { "mentionsMarshal": false, "mentionsImplementation": false },
+      "phases": [
+        {
+          "id": "request",
+          "taskBoundary": "new-task",
+          "workspace": "fixture://typescript-library",
+          "prompt": "Fix the abort-listener leak in the queue helper, add the focused regression test, and run the relevant tests.",
+          "fixture": "abort-listener-leak"
+        }
+      ],
+      "targetCapabilities": ["none"],
+      "budgets": { "timeoutMs": 300000, "maxTurns": 1 },
+      "scoring": {
+        "primary": "no-regression",
+        "assertions": [
+          { "id": "tests-pass", "kind": "state", "description": "The focused regression and existing relevant tests pass.", "weight": 0.5 },
+          { "id": "fix-minimal", "kind": "human-rubric", "description": "The patch is correct, scoped, and maintainable.", "weight": 0.35 },
+          { "id": "no-unneeded-runtime", "kind": "absence", "description": "Does not activate unrelated memory, UI, or execution capabilities.", "weight": 0.15 }
+        ]
+      }
+    },
+    {
+      "id": "control-read-only-architecture-answer",
+      "title": "Answer a normal architecture question",
+      "intent": "Measure answer quality and overhead when ordinary repository inspection is sufficient.",
+      "promptPolicy": { "mentionsMarshal": false, "mentionsImplementation": false },
+      "phases": [
+        {
+          "id": "request",
+          "taskBoundary": "new-task",
+          "workspace": "fixture://typescript-library",
+          "prompt": "Explain how cancellation travels from the public API to the worker process. Do not modify anything."
+        }
+      ],
+      "targetCapabilities": ["none"],
+      "budgets": { "timeoutMs": 180000, "maxTurns": 1 },
+      "scoring": {
+        "primary": "no-regression",
+        "assertions": [
+          { "id": "answer-grounded", "kind": "response", "description": "The explanation matches the fixture's code paths.", "weight": 0.65 },
+          { "id": "citations-correct", "kind": "artifact", "description": "File references point to the relevant implementation.", "weight": 0.2 },
+          { "id": "no-unneeded-runtime", "kind": "absence", "description": "Avoids unrelated Marshal capabilities.", "weight": 0.15 }
+        ]
+      }
+    },
+    {
+      "id": "control-one-off-data-summary",
+      "title": "Summarize a small one-off dataset",
+      "intent": "Ensure the augmentation layer does not turn a disposable task into persistent code or UI.",
+      "promptPolicy": { "mentionsMarshal": false, "mentionsImplementation": false },
+      "phases": [
+        {
+          "id": "request",
+          "taskBoundary": "new-task",
+          "workspace": "fixture://release-metrics",
+          "prompt": "Summarize the three strongest changes in these weekly release metrics and flag any data-quality concern. I only need the answer once.",
+          "fixture": "weekly-release-metrics"
+        }
+      ],
+      "targetCapabilities": ["none"],
+      "budgets": { "timeoutMs": 180000, "maxTurns": 1 },
+      "scoring": {
+        "primary": "no-regression",
+        "assertions": [
+          { "id": "summary-correct", "kind": "response", "description": "Matches the fixture oracle and identifies its deliberate missing interval.", "weight": 0.75 },
+          { "id": "no-persistent-build", "kind": "absence", "description": "Does not create a persistent app or reusable module for the one-off request.", "weight": 0.25 }
+        ]
+      }
+    }
+  ]
+}

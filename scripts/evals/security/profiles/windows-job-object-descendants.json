@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0.0",
+  "profileId": "windows-job-object-descendants",
+  "platforms": ["win32-x64"],
+  "mechanism": "windows-job-object-kill-on-close",
+  "testOnly": false,
+  "enforcementMode": "kernel",
+  "denyByDefault": false,
+  "descendantInheritance": "mandatory",
+  "externalDataEgress": "unrestricted",
+  "modelTransportIsolation": "shared-with-descendants",
+  "filesystemOutsideAttempt": "unrestricted",
+  "coverage": [
+    "codex-process",
+    "marshal-plugin-children",
+    "workspace-command-children",
+    "objective-oracle"
+  ],
+  "jobLimits": {
+    "killOnJobClose": true,
+    "breakawayAllowed": false,
+    "ownerDeathMonitored": true,
+    "targetStart": "suspended-before-assignment"
+  },
+  "releaseEligible": false,
+  "limitations": [
+    "network-egress-is-not-confined",
+    "filesystem-access-is-not-confined",
+    "model-transport-is-not-parent-only",
+    "no-loaded-network-or-filesystem-kernel-policy-measurement"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "evidenceSetId": "REPLACE_WITH_STABLE_EVIDENCE_SET_ID",
+  "frozenAt": "REPLACE_WITH_ISO_8601",
+  "attempts": [
+    {
+      "bundle": "REPLACE_WITH_BUNDLE_DIRECTORY_NAME",
+      "demoId": "REPLACE_WITH_DEMO_ID",
+      "captureAttemptId": "REPLACE_WITH_METADATA_CAPTURE_ATTEMPT_ID",
+      "outcome": "interrupted",
+      "notes": []
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+[
+  {"version":"2.4.0","service":"checkout","status":"ready"},
+  {"version":"1.9.3","service":"catalog","status":"held"}
+]

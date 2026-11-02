@@ -1,0 +1,9 @@
+{
+  "id": "INC-2048",
+  "severity": "SEV-2",
+  "owner": "Payments Platform",
+  "startedAt": "2026-08-01T12:00:00Z",
+  "status": "investigating",
+  "summary": "Elevated payment authorization latency",
+  "runbook": "runbook.md"
+}

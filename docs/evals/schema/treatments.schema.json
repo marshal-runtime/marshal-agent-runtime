@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://marshal.dev/schemas/evals/treatments-1.0.0.json",
+  "title": "Marshal evaluation treatments",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "treatments"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "treatments": {
+      "type": "array",
+      "minItems": 2,
+      "items": { "$ref": "#/$defs/treatment" }
+    }
+  },
+  "$defs": {
+    "treatment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "headlineEligible", "description", "marshal"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "kind": { "enum": ["baseline", "treatment", "ablation", "diagnostic"] },
+        "headlineEligible": { "type": "boolean" },
+        "description": { "type": "string", "minLength": 1 },
+        "marshal": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["installed", "promptForced", "capabilities"],
+          "properties": {
+            "installed": { "type": "boolean" },
+            "promptForced": { "type": "boolean" },
+            "capabilities": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["briefing", "memory", "typescript", "ui", "subagents"],
+              "properties": {
+                "briefing": { "type": "boolean" },
+                "memory": { "type": "boolean" },
+                "typescript": { "type": "boolean" },
+                "ui": { "type": "boolean" },
+                "subagents": { "type": "boolean" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

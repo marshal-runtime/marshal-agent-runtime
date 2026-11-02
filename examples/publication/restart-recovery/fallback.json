@@ -1,0 +1,13 @@
+{
+  "summary": "Persistent project panel with overview and evidence views. The selected view is project-scoped local UI state. Reopening the same render after remount or restart must restore that selection without recompiling the source or creating another render.",
+  "details": {
+    "views": ["overview", "evidence"],
+    "stateScope": "project",
+    "schemaVersion": "1.0.0",
+    "recoveryProcedure": [
+      "Reuse the existing renderId.",
+      "Read the project-scoped local state snapshot.",
+      "Display the saved view; do not write source, compile, or create a new render binding."
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "projectName": "Atlas Launch",
+  "brief": "Create a calm launch-planning workspace that makes tradeoffs visible and supports targeted iteration.",
+  "sourceMaterial": "Recorded fixture: launch milestones, target audiences, and unresolved positioning decisions.",
+  "constraints": ["WCAG-aware contrast", "responsive inline and fullscreen layout", "no network access", "project-scoped persistence"]
+}

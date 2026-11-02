@@ -1,0 +1,12 @@
+{
+  "name": "Calm Launch",
+  "colors": {
+    "canvas": "#f6f7f4",
+    "surface": "#ffffff",
+    "text": "#17201c",
+    "accent": "#357a63"
+  },
+  "radius": { "card": 16, "control": 10 },
+  "spacing": [4, 8, 12, 16, 24, 32],
+  "principles": ["quiet hierarchy", "clear ownership", "progressive disclosure"]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "@fixture/catalog",
+  "version": "1.0.0",
+  "dependencies": {
+    "@fixture/search": "workspace:*",
+    "@fixture/shared": "workspace:*"
+  }
+}

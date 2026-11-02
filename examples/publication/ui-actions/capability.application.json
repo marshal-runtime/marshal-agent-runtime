@@ -1,0 +1,31 @@
+{
+  "version": "1.0.0",
+  "presentationModes": ["inline"],
+  "actions": [
+    {
+      "id": "search-memory",
+      "version": "1.0.0",
+      "title": "Search project memory",
+      "description": "Schema-valid project-scoped read through the declared memory.search capability.",
+      "target": { "kind": "capability", "capability": "memory.search" },
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "scope": { "const": "project" },
+          "query": { "type": "string", "minLength": 1, "maxLength": 20000 },
+          "limit": { "type": "integer", "minimum": 1, "maximum": 10 }
+        },
+        "required": ["scope", "query", "limit"],
+        "additionalProperties": false
+      },
+      "outputSchema": { "type": "object", "additionalProperties": true },
+      "allowedScopes": ["project"],
+      "requiredPermissions": ["memory.read"],
+      "risk": "read",
+      "idempotency": "supported"
+    }
+  ],
+  "tools": [],
+  "localState": { "scope": "project", "schemaVersion": "1.0.0" },
+  "authoringProfile": { "id": "marshal-standards", "version": "1.0.0" }
+}

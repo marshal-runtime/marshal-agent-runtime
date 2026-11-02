@@ -1,0 +1,6 @@
+week,total_deployments,failed_deployments,median_minutes,rollback_rate
+2026-W01,40,8,24,0.100
+2026-W02,44,7,21,0.091
+2026-W03,48,6,18,0.063
+2026-W05,52,4,15,0.038
+2026-W06,56,3,13,0.036

@@ -1,0 +1,70 @@
+{
+  "version": "1.0.0",
+  "profiles": {
+    "offline-compute": {
+      "grants": [],
+      "denied": ["runtime.*", "network.*", "filesystem.*"],
+      "limits": { "timeoutMs": 1000, "maxOutputBytes": 65536 },
+      "approvalPolicy": "deny-unlisted"
+    },
+    "automatic-memory": {
+      "grants": ["memory.read", "memory.write"],
+      "denied": ["runtime.effects.*", "runtime.delegation.*", "trusted_ui"],
+      "limits": { "scope": "agent", "maxExplicitContentCharacters": 20000 },
+      "approvalPolicy": "deny-unlisted"
+    },
+    "capability-composition": {
+      "grants": ["runtime.module.execute", "memory.read", "artifacts.write"],
+      "denied": ["runtime.effects.*", "runtime.delegation.*", "trusted_ui"],
+      "limits": { "maxBrokerInvocations": 4, "maxConcurrentBrokerInvocations": 2, "timeoutMs": 5000 },
+      "approvalPolicy": "deny-unlisted"
+    },
+    "ui-capability-read": {
+      "grants": ["trusted_ui", "ui.render", "memory.read"],
+      "denied": ["memory.write", "runtime.effects.*", "runtime.delegation.*"],
+      "limits": { "allowedScopes": ["project"], "maxActionInputBytes": 4096 },
+      "approvalPolicy": "deny-unlisted"
+    },
+    "ui-module-write": {
+      "grants": ["trusted_ui", "ui.render", "runtime.module.execute", "artifacts.write"],
+      "denied": ["runtime.effects.*", "runtime.delegation.*", "filesystem.unscoped"],
+      "limits": { "allowedScopes": ["project"], "maxActionInputBytes": 4096, "timeoutMs": 3000 },
+      "approvalPolicy": "require-for-unlisted"
+    },
+    "ui-presentation": {
+      "grants": ["trusted_ui", "ui.render"],
+      "denied": ["runtime.effects.*", "runtime.delegation.*"],
+      "limits": { "presentationModes": ["inline", "fullscreen", "pip"] },
+      "approvalPolicy": "deny-unlisted"
+    },
+    "ui-recovery": {
+      "grants": ["trusted_ui", "ui.render", "ui.state.read", "ui.state.write"],
+      "denied": ["runtime.effects.*", "runtime.delegation.*"],
+      "limits": { "stateScope": "project", "maxReopens": 100 },
+      "approvalPolicy": "deny-unlisted"
+    },
+    "bounded-delegation": {
+      "grants": ["runtime.module.execute", "runtime.delegation.spawn", "runtime.delegation.continue", "runtime.delegation.wait", "runtime.delegation.cancel"],
+      "denied": ["runtime.effects.*"],
+      "approvalPolicy": "require-for-unlisted"
+    },
+    "capstone-preauthorized": {
+      "grants": [
+        "runtime.module.execute",
+        "runtime.delegation.spawn",
+        "runtime.delegation.wait",
+        "attachments.read",
+        "code.read",
+        "artifacts.read",
+        "artifacts.write",
+        "trusted_ui",
+        "ui.render"
+      ],
+      "denied": ["runtime.effects.*", "network.*", "filesystem.unscoped"],
+      "limits": {
+        "presentationModes": ["inline", "fullscreen", "pip"]
+      },
+      "approvalPolicy": "require-for-unlisted"
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://marshal.dev/schemas/evals/case-set-1.0.0.json",
+  "title": "Marshal evaluation case set",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "family", "cases"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "family": { "enum": ["routing", "memory", "execution", "ui", "control"] },
+    "cases": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/case" }
+    }
+  },
+  "$defs": {
+    "case": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "intent",
+        "promptPolicy",
+        "phases",
+        "targetCapabilities",
+        "budgets",
+        "scoring"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "title": { "type": "string", "minLength": 1 },
+        "intent": { "type": "string", "minLength": 1 },
+        "promptPolicy": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["mentionsMarshal", "mentionsImplementation"],
+          "properties": {
+            "mentionsMarshal": { "const": false },
+            "mentionsImplementation": { "const": false }
+          }
+        },
+        "phases": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "taskBoundary", "workspace", "prompt"],
+            "properties": {
+              "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+              "taskBoundary": { "enum": ["same-task", "new-task", "restart-host"] },
+              "workspace": { "type": "string", "minLength": 1 },
+              "prompt": { "type": "string", "minLength": 1 },
+              "fixture": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "targetCapabilities": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "enum": ["routing", "memory", "typescript", "ui", "subagents", "none"] }
+        },
+        "eligibleTreatmentIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "budgets": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["timeoutMs", "maxTurns"],
+          "properties": {
+            "timeoutMs": { "type": "integer", "minimum": 1000 },
+            "maxTurns": { "type": "integer", "minimum": 1 }
+          }
+        },
+        "scoring": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["primary", "assertions"],
+          "properties": {
+            "primary": { "enum": ["task-success", "routing-accuracy", "memory-recall", "no-regression"] },
+            "assertions": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["id", "kind", "description", "weight"],
+                "properties": {
+                  "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+                  "kind": { "enum": ["artifact", "state", "trace", "response", "human-rubric", "latency", "absence"] },
+                  "description": { "type": "string", "minLength": 1 },
+                  "weight": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

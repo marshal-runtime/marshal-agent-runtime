@@ -1,0 +1,46 @@
+{
+  "version": "1.0.0",
+  "presentationModes": ["inline"],
+  "actions": [
+    {
+      "id": "update-priority",
+      "version": "1.0.0",
+      "title": "Update priority",
+      "description": "Run the editable workspace backend and persist its project-scoped record.",
+      "target": {
+        "kind": "module",
+        "module": {
+          "kind": "workspace_file",
+          "path": "examples/publication/ui-actions/update-priority.ts",
+          "export": "default"
+        }
+      },
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "itemId": { "type": "string", "minLength": 1, "maxLength": 128 },
+          "priority": { "type": "string", "minLength": 1, "maxLength": 64 }
+        },
+        "required": ["itemId", "priority"],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "updated": { "const": true },
+          "record": { "type": "object" },
+          "artifact": { "type": "object" }
+        },
+        "required": ["updated", "record", "artifact"],
+        "additionalProperties": false
+      },
+      "allowedScopes": ["project"],
+      "requiredPermissions": ["runtime.module.execute", "artifacts.write"],
+      "risk": "write",
+      "idempotency": "required"
+    }
+  ],
+  "tools": [],
+  "localState": { "scope": "project", "schemaVersion": "1.0.0" },
+  "authoringProfile": { "id": "marshal-standards", "version": "1.0.0" }
+}

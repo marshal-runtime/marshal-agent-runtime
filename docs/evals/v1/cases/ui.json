@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "1.0.0",
+  "family": "ui",
+  "cases": [
+    {
+      "id": "ui-tool-calling-fullscreen-explorer",
+      "title": "Build a persistent tool-calling project explorer",
+      "intent": "Exercise reusable React, host display modes, runtime actions, and durable state as one user-facing application.",
+      "promptPolicy": { "mentionsMarshal": false, "mentionsImplementation": false },
+      "phases": [
+        {
+          "id": "build",
+          "taskBoundary": "new-task",
+          "workspace": "fixture://dependency-graph",
+          "prompt": "Create an interactive project explorer I can use here: filter packages, inspect dependency paths, save named views, and trigger an impact lookup from the selected symbol. Use the largest supported presentation when I expand it and preserve editable source."
+        },
+        {
+          "id": "restore",
+          "taskBoundary": "restart-host",
+          "workspace": "fixture://dependency-graph",
+          "prompt": "Reopen the project explorer from earlier with my saved view intact."
+        }
+      ],
+      "targetCapabilities": ["ui", "typescript"],
+      "budgets": { "timeoutMs": 600000, "maxTurns": 2 },
+      "scoring": {
+        "primary": "task-success",
+        "assertions": [
+          { "id": "first-render-usable", "kind": "artifact", "description": "A usable interactive app renders on the first display attempt.", "weight": 0.25 },
+          { "id": "tool-action-works", "kind": "state", "description": "An impact lookup initiated by the UI returns the expected result.", "weight": 0.25 },
+          { "id": "mode-negotiation", "kind": "trace", "description": "Requests fullscreen only when advertised and otherwise degrades gracefully.", "weight": 0.15 },
+          { "id": "state-restored", "kind": "state", "description": "The saved view survives remount and host restart.", "weight": 0.25 },
+          { "id": "fallback-complete", "kind": "artifact", "description": "The tool result remains useful in a non-UI host.", "weight": 0.1 }
+        ]
+      }
+    },
+    {
+      "id": "ui-inline-incident-card",
+      "title": "Render a focused inline action card",
+      "intent": "Measure appropriate compact presentation and safe tool invocation without overbuilding a full application.",
+      "promptPolicy": { "mentionsMarshal": false, "mentionsImplementation": false },
+      "phases": [
+        {
+          "id": "request",
+          "taskBoundary": "new-task",
+          "workspace": "fixture://incident-response",
+          "prompt": "Show the current incident summary directly here with severity, owner, elapsed time, and two actions: acknowledge and open the relevant runbook. Keep it compact."
+        }
+      ],
+      "targetCapabilities": ["ui"],
+      "budgets": { "timeoutMs": 300000, "maxTurns": 1 },
+      "scoring": {
+        "primary": "task-success",
+        "assertions": [
+          { "id": "compact-inline-layout", "kind": "human-rubric", "description": "Uses a focused inline card with no nested navigation or scrolling.", "weight": 0.3 },
+          { "id": "actions-safe", "kind": "trace", "description": "Actions call declared tools through scoped permission checks.", "weight": 0.35 },
+          { "id": "state-updates", "kind": "state", "description": "Acknowledgement updates authoritative incident state and the rendered card.", "weight": 0.35 }
+        ]
+      }
+    },
+    {
+      "id": "ui-pip-live-progress",
+      "title": "Negotiate picture-in-picture for live progress",
+      "intent": "Test PiP when supported and explicit graceful fallback when it is not.",
+      "promptPolicy": { "mentionsMarshal": false, "mentionsImplementation": false },
+      "phases": [
+        {
+          "id": "request",
+          "taskBoundary": "new-task",
+          "workspace": "fixture://migration-project",
+          "prompt": "Start the migration dry run and give me a small live progress view that can stay visible while we continue chatting. It should show completed stages, the active stage, failures, and a cancel control."
+        }
+      ],
+      "targetCapabilities": ["ui"],
+      "budgets": { "timeoutMs": 360000, "maxTurns": 1 },
+      "scoring": {
+        "primary": "task-success",
+        "assertions": [
+          { "id": "capability-negotiated", "kind": "trace", "description": "Uses PiP only when the host advertises it and records the fallback otherwise.", "weight": 0.3 },
+          { "id": "progress-live", "kind": "state", "description": "Progress changes without remounting the entire interface.", "weight": 0.35 },
+          { "id": "cancel-safe", "kind": "trace", "description": "Cancel is a declared permissioned action with a receipt.", "weight": 0.35 }
+        ]
+      }
+    },
+    {
+      "id": "ui-design-studio-agent-orchestration-capstone",
+      "title": "Create an inline design studio through autonomous orchestration",
+      "intent": "Capstone the non-memory capability surface: natural routing, editable dynamic orchestration, bounded native-agent delegation, synthesis, runtime-backed actions, persistent source, and a production-usable host application.",
+      "promptPolicy": { "mentionsMarshal": false, "mentionsImplementation": false },
+      "phases": [
+        {
+          "id": "build",
+          "taskBoundary": "new-task",
+          "workspace": "fixture://product-design-brief",
+          "prompt": "Build me a complete interactive design workspace I can use here. I want to turn a product brief into several genuinely different interface directions, compare them side by side, select one, refine it conversationally and directly on the canvas, apply the supplied design system, inspect responsive states, and keep an editable implementation I can reopen and continue later. Handle the complex work efficiently and show me the finished usable workspace, not a static mockup or a plan."
+        },
+        {
+          "id": "refine",
+          "taskBoundary": "same-task",
+          "workspace": "fixture://product-design-brief",
+          "prompt": "Keep direction B, make the information hierarchy calmer, and add a mobile state. Update the live workspace and its source without rebuilding it from scratch."
+        },
+        {
+          "id": "restore",
+          "taskBoundary": "restart-host",
+          "workspace": "fixture://product-design-brief",
+          "prompt": "Reopen my design workspace with the chosen direction and latest edits intact."
+        }
+      ],
+      "targetCapabilities": ["routing", "ui", "typescript", "subagents"],
+      "budgets": { "timeoutMs": 1200000, "maxTurns": 3 },
+      "scoring": {
+        "primary": "task-success",
+        "assertions": [
+          { "id": "routes-autonomously", "kind": "trace", "description": "Selects the portable UI, programmable execution, and delegation capabilities without requiring the user to name them.", "weight": 0.1 },
+          { "id": "orchestration-is-editable-and-bounded", "kind": "trace", "description": "Authors or reuses editable TypeScript orchestration whose fan-out, concurrency, depth, duration, permissions, cancellation, and receipts are bounded and inspectable.", "weight": 0.15 },
+          { "id": "delegation-is-useful", "kind": "human-rubric", "description": "Uses parallel or conditional native agents only where they materially improve exploration, critique, implementation, or verification, then coherently synthesizes their work.", "weight": 0.1 },
+          { "id": "first-display-is-usable", "kind": "artifact", "description": "The first display attempt contains a validated interactive application rather than a placeholder, raw protocol payload, or broken render.", "weight": 0.15 },
+          { "id": "design-workspace-is-complete", "kind": "human-rubric", "description": "The app supports meaningfully different directions, comparison and selection, design-system application, direct canvas interaction, responsive inspection, and runtime-backed controls.", "weight": 0.2 },
+          { "id": "refinement-updates-in-place", "kind": "state", "description": "The follow-up changes the selected live direction and editable source without needless regeneration or loss of state.", "weight": 0.1 },
+          { "id": "restores-across-host-restart", "kind": "state", "description": "The selected direction, edits, application state, editable source, and attributable receipts restore after restart.", "weight": 0.1 },
+          { "id": "host-modes-and-fallbacks-work", "kind": "artifact", "description": "Inline, expanded or fullscreen, and any advertised secondary presentation modes negotiate correctly, with a useful fallback on hosts lacking a mode.", "weight": 0.1 }
+        ]
+      }
+    }
+  ]
+}

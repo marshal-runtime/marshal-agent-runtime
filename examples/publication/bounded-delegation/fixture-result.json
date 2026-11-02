@@ -1,0 +1,10 @@
+{
+  "evidenceClass": "generated-fixture",
+  "notALiveRun": true,
+  "purpose": "Demonstrate plain delegated outcomes; do not cite as native-agent evidence.",
+  "outcomes": [
+    { "name": "security", "state": "succeeded", "fixtureSummary": "Check isolation and approval language." },
+    { "name": "reproducibility", "state": "succeeded", "fixtureSummary": "Require trace and receipt links for every published attempt." },
+    { "name": "accessibility", "state": "succeeded", "fixtureSummary": "Keep non-interactive fallbacks complete." }
+  ]
+}

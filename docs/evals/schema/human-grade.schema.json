@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://marshal.dev/schemas/evals/human-grade-1.0.0.json",
+  "title": "Blind human evaluation grade",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["blindId", "score", "grader"],
+  "properties": {
+    "blindId": { "type": "string", "pattern": "^[a-f0-9]{24}$" },
+    "score": { "type": "number", "minimum": 0, "maximum": 1 },
+    "grader": { "type": "string", "minLength": 1 },
+    "notes": { "type": "string" }
+  }
+}

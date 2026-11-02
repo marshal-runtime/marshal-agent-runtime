@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "agent-runtime": {
+      "command": "node",
+      "args": [
+        "./packages/agent-runtime-codex/dist/cli.js",
+        "--kernel-module",
+        "./packages/agent-runtime-codex/dist/index.js",
+        "--workspace",
+        "."
+      ]
+    }
+  }
+}

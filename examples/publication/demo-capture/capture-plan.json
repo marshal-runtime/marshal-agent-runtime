@@ -1,0 +1,116 @@
+{
+  "version": "1.4.1",
+  "rules": {
+    "freshSession": true,
+    "uncutLiveRequired": true,
+    "fixtureOverlaysMustSay": "GENERATED FIXTURE — NOT LIVE EVIDENCE",
+    "forbidReconstructedReceipts": true,
+    "forbidFabricatedMedia": true,
+    "publishEveryAttempt": true,
+    "shortMediaMustLinkToUncutHashes": true
+  },
+  "publicationAutomation": {
+    "traceReceiptExport": {
+      "tool": "export-trace-receipts.mjs",
+      "policy": "canonicalize only exported JSON/JSONL records and extract only receipt-shaped objects already present in the source",
+      "doesNotProve": ["host behavior", "receipt truth", "human trace-receipt correspondence"]
+    },
+    "derivativeGeneration": {
+      "tool": "generate-derivatives.mjs",
+      "requires": ["capture-level structural acceptance", "operator-authored source ranges", "FFmpeg and FFprobe"],
+      "outputs": ["preview.gif", "short.mp4", "derivatives.json"],
+      "doesNotAutomate": ["host clicks", "application restart", "fairness review"]
+    },
+    "allAttemptVerification": {
+      "tool": "verify-evidence-set.mjs",
+      "ledgerTemplate": "all-attempts.template.json",
+      "policy": "reject unlisted bundle directories and reconcile every verified demo attempt with a declared succeeded, failed, interrupted, or unsupported outcome",
+      "trustBoundary": "cannot detect a run the operator never preserved under the evidence-set root"
+    }
+  },
+  "demos": [
+    {
+      "id": "automatic-memory",
+      "catalogExampleIds": ["automatic-memory-lifecycle"],
+      "promptScript": "live-run-script.md#automatic-memory",
+      "prompts": [
+        "Remember that my publication accent color is ultramarine.",
+        "What publication accent color did I choose earlier?"
+      ],
+      "requiredCaptureFiles": ["metadata.json", "recorder.json", "trace.jsonl", "screen.webm", "prompt.txt", "write-receipt.json", "recall-receipt.json", "redaction-manifest.json"],
+      "requiredPublicationFiles": ["review.json", "preview.gif", "short.mp4", "derivatives.json"],
+      "mustShow": ["fresh first task", "pre-response semantic Brain remember receipt", "fresh second task", "naturally selected semantic Brain recall receipt", "scope identity", "hook enqueue remains non-blocking"]
+    },
+    {
+      "id": "ordinary-typescript",
+      "catalogExampleIds": ["ordinary-typescript"],
+      "promptScript": "live-run-script.md#ordinary-typescript",
+      "prompts": [
+        "Summarize the attached order fixture by region, make the calculation reusable, and show the exact result."
+      ],
+      "requiredCaptureFiles": ["metadata.json", "recorder.json", "trace.jsonl", "screen.webm", "prompt.txt", "module-source.ts", "execution-receipt.json", "redaction-manifest.json"],
+      "requiredPublicationFiles": ["review.json", "preview.gif", "short.mp4", "derivatives.json"],
+      "mustShow": ["prompt does not name Marshal", "editable source", "source digest", "non-UI result"]
+    },
+    {
+      "id": "capability-composition",
+      "catalogExampleIds": ["capability-composition"],
+      "promptScript": "live-run-script.md#capability-composition",
+      "prompts": [
+        "Create a reusable project brief from the attached project notes. Include any relevant preference you already know, preserve the result, and report where it was saved."
+      ],
+      "requiredCaptureFiles": ["metadata.json", "recorder.json", "trace.jsonl", "screen.webm", "prompt.txt", "module-source.ts", "result.json", "nested-receipts.jsonl", "redaction-manifest.json"],
+      "requiredPublicationFiles": ["review.json", "preview.gif", "short.mp4", "derivatives.json"],
+      "mustShow": ["indirect prompt", "editable composition module", "attachment or project input", "memory lookup", "durable artifact", "parent-child receipts"]
+    },
+    {
+      "id": "bounded-delegation",
+      "catalogExampleIds": ["bounded-delegation"],
+      "promptScript": "live-run-script.md#bounded-delegation",
+      "prompts": [
+        "Review this release candidate from architecture, security, and operator perspectives in parallel, then synthesize one recommendation and preserve the review."
+      ],
+      "requiredCaptureFiles": ["metadata.json", "recorder.json", "trace.jsonl", "screen.webm", "prompt.txt", "orchestration-source.ts", "result.json", "redaction-manifest.json"],
+      "requiredPublicationFiles": ["review.json", "preview.gif", "short.mp4", "derivatives.json"],
+      "mustShow": ["indirect prompt", "parallel host sessions", "returned delegation IDs", "plain terminal results", "synthesized review"]
+    },
+    {
+      "id": "ui-actions-and-modes",
+      "catalogExampleIds": ["ui-capability-action", "ui-module-action", "presentation-adaptation"],
+      "promptScript": "live-run-script.md#ui-actions-and-modes",
+      "prompts": [
+        "Turn these project decisions into an interactive review panel I can use here."
+      ],
+      "requiredCaptureFiles": ["metadata.json", "recorder.json", "host-gates.json", "trace.jsonl", "screen.webm", "prompt.txt", "application.json", "fallback.json", "action-receipts.json", "redaction-manifest.json"],
+      "requiredPublicationFiles": ["review.json", "preview.gif", "short.mp4", "derivatives.json"],
+      "requiredHostGates": ["inline-pixels", "capability-action", "module-action", "fullscreen", "pip", "text-fallback"],
+      "mustShow": ["inline mount", "declared action", "fullscreen request", "PiP result or typed limitation", "text fallback"]
+    },
+    {
+      "id": "restart-recovery",
+      "catalogExampleIds": ["restart-recovery"],
+      "promptScript": "live-run-script.md#restart-recovery",
+      "prompts": [],
+      "requiredCaptureFiles": ["metadata.json", "recorder.json", "host-gates.json", "trace.jsonl", "screen.webm", "render-receipt.json", "recovery-receipt.json", "redaction-manifest.json"],
+      "requiredPublicationFiles": ["review.json", "preview.gif", "short.mp4", "derivatives.json"],
+      "requiredHostGates": ["selected-state", "product-restart", "historical-reopen", "same-render-id", "no-recompile-or-rebind"],
+      "mustShow": ["selected local state", "host restart", "historical message reopen", "same renderId", "no compile during reopen"]
+    },
+    {
+      "id": "design-studio-capstone",
+      "catalogExampleIds": ["design-studio-capstone"],
+      "promptScript": "live-run-script.md#design-studio-capstone",
+      "frozenPrompt": {
+        "source": "docs/evals/v1/cases/ui.json#ui-design-studio-agent-orchestration-capstone/build",
+        "sha256": "c9b0e64795a9f63668ec51b816dcebafe79cea2ca6b4c95b8a68a13cb41ed80a"
+      },
+      "prompts": [
+        "Build me a complete interactive design workspace I can use here. I want to turn a product brief into several genuinely different interface directions, compare them side by side, select one, refine it conversationally and directly on the canvas, apply the supplied design system, inspect responsive states, and keep an editable implementation I can reopen and continue later. Handle the complex work efficiently and show me the finished usable workspace, not a static mockup or a plan."
+      ],
+      "requiredCaptureFiles": ["metadata.json", "recorder.json", "host-gates.json", "trace.jsonl", "screen.webm", "prompt.txt", "permissions.json", "receipts.jsonl", "source-manifest.json", "redaction-manifest.json"],
+      "requiredPublicationFiles": ["review.json", "preview.gif", "short.mp4", "derivatives.json"],
+      "requiredHostGates": ["inline-pixels", "backend-action", "targeted-edit", "fullscreen", "pip", "product-restart", "historical-reopen", "restored-state"],
+      "mustShow": ["fresh implicit prompt", "autonomous routing", "bounded useful fan-out", "synthesis", "live app", "declared backend action", "targeted edit", "restart restoration"]
+    }
+  ]
+}

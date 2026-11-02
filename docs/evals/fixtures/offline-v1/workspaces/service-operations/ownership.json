@@ -1,0 +1,5 @@
+{
+  "catalog": "packages/catalog-core",
+  "checkout": "packages/payments",
+  "search": "packages/search-index"
+}

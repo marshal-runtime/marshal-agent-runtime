@@ -1,0 +1,261 @@
+{
+  "benchmark": "marshal-capacity",
+  "version": 1,
+  "generatedAt": "2026-08-02T10:50:18.128Z",
+  "environment": {
+    "node": "v24.14.0",
+    "platform": "win32",
+    "architecture": "x64",
+    "cpuCount": 8
+  },
+  "configuration": {
+    "entries": 100000,
+    "queryCount": 20,
+    "relevantPerQuery": 5,
+    "coldSamples": 20,
+    "warmSamples": 20,
+    "typescriptSamples": 20,
+    "uiSamples": 100,
+    "seed": 20260801,
+    "jsonOnly": true,
+    "enforce": true,
+    "output": "docs/evidence/capacity-final-frozen-2026-08-02.json",
+    "help": false
+  },
+  "methodology": {
+    "corpus": "Seeded deterministically through batched SQLite fixture ingress; queried through the public memory capability.",
+    "coldMemory": "Fresh provider and SQLite connection per sample; operating-system filesystem caches are not flushed.",
+    "warmMemory": "Repeated operations through one provider and connection after explicit warm-up.",
+    "typescript": "Workspace-backed editable source is read and executed through DirectTypeScriptExecutor. Cold samples disable the compilation cache; same-source samples require digest-keyed hit receipts after dependency-graph validation and use a prewarmed fresh brokered worker.",
+    "ui": "Wall time around UiActionDispatcher minus time inside its no-op target executor; includes load, schema checks, authorization, and receipt creation."
+  },
+  "memory": {
+    "corpus": {
+      "entries": 100000,
+      "queryCount": 20,
+      "relevantPerQuery": 5,
+      "seed": 20260801,
+      "digest": "sha256:7cc8e613fd84b298ddd5d3c6caf97d74a493ff5eea519929cf837619f7129c9b",
+      "seedDurationMs": 3628.929,
+      "fixtureIngress": "batched SQLite seed plus one external-content FTS rebuild; retrieval uses memory.search capability"
+    },
+    "quality": {
+      "queries": 20,
+      "topK": 5,
+      "recallAtK": 1,
+      "nDcgAtK": 1,
+      "irrelevantInjectionRate": 0,
+      "returnedResults": 100,
+      "irrelevantResults": 0
+    },
+    "qualityQueryLatencyMs": {
+      "samples": 20,
+      "min": 0.393,
+      "mean": 1.37,
+      "p50": 0.671,
+      "p95": 1.653,
+      "max": 13.921
+    },
+    "latency": {
+      "coldInitializationMs": {
+        "samples": 20,
+        "min": 1.661,
+        "mean": 2.241,
+        "p50": 2.035,
+        "p95": 3.001,
+        "max": 3.144
+      },
+      "coldStoreMs": {
+        "samples": 20,
+        "min": 3.939,
+        "mean": 6.492,
+        "p50": 5.45,
+        "p95": 9.893,
+        "max": 22.762
+      },
+      "coldRecallMs": {
+        "samples": 20,
+        "min": 0.485,
+        "mean": 0.739,
+        "p50": 0.61,
+        "p95": 0.981,
+        "max": 1.551
+      },
+      "warmStoreMs": {
+        "samples": 20,
+        "min": 2.961,
+        "mean": 3.759,
+        "p50": 3.599,
+        "p95": 4.745,
+        "max": 4.795
+      },
+      "warmRecallMs": {
+        "samples": 20,
+        "min": 0.423,
+        "mean": 0.62,
+        "p50": 0.493,
+        "p95": 0.901,
+        "max": 1.814
+      }
+    }
+  },
+  "typescript": {
+    "sourceKind": "workspace_file",
+    "samples": {
+      "uncached": 20,
+      "cached": 20
+    },
+    "uncachedLatencyMs": {
+      "samples": 20,
+      "min": 52.28,
+      "mean": 73.287,
+      "p50": 58.418,
+      "p95": 86.395,
+      "max": 246.053
+    },
+    "compileLatencyMs": {
+      "samples": 20,
+      "min": 3.02,
+      "mean": 10.965,
+      "p50": 4.043,
+      "p95": 6.186,
+      "max": 138.716
+    },
+    "executionLatencyMs": {
+      "samples": 20,
+      "min": 47.626,
+      "mean": 61.522,
+      "p50": 54.671,
+      "p95": 81.937,
+      "max": 105.91
+    },
+    "sameSourceLatencyMs": {
+      "samples": 20,
+      "min": 48.433,
+      "mean": 63.513,
+      "p50": 57.879,
+      "p95": 101.295,
+      "max": 102.365
+    },
+    "cachedCompileValidationMs": {
+      "samples": 20,
+      "min": 2,
+      "mean": 2.628,
+      "p50": 2.418,
+      "p95": 3.123,
+      "max": 5.871
+    },
+    "cachedExecutionLatencyMs": {
+      "samples": 20,
+      "min": 45.269,
+      "mean": 60.133,
+      "p50": 54.682,
+      "p95": 94.185,
+      "max": 99.455
+    },
+    "reliability": {
+      "validResults": 40,
+      "validResultRate": 1,
+      "distinctSourceDigests": 1
+    },
+    "cacheEvidence": {
+      "verifiedCacheHit": true,
+      "coldReceipt": {
+        "cacheKey": "sha256:75878e5ea4015aab9eb6331b0369cd08b4f887179acc0632fb3b7c14bf37e37a",
+        "cacheStatus": "miss",
+        "dependencyGraphValidated": true
+      },
+      "observedHitReceipts": 20,
+      "dependencyGraphValidatedReceipts": 20,
+      "explanation": "Each same-source execution carried a digest-keyed cache-hit receipt after esbuild revalidated the bundled dependency graph."
+    }
+  },
+  "ui": {
+    "samples": 100,
+    "coldDispatchMs": 1.372,
+    "coldTargetOperationMs": 0.003,
+    "coldDispatchOverheadMs": 1.369,
+    "wallLatencyMs": {
+      "samples": 100,
+      "min": 0.017,
+      "mean": 0.031,
+      "p50": 0.028,
+      "p95": 0.058,
+      "max": 0.127
+    },
+    "targetOperationMs": {
+      "samples": 100,
+      "min": 0,
+      "mean": 0,
+      "p50": 0,
+      "p95": 0,
+      "max": 0.001
+    },
+    "dispatchOverheadMs": {
+      "samples": 100,
+      "min": 0.017,
+      "mean": 0.03,
+      "p50": 0.028,
+      "p95": 0.058,
+      "max": 0.127
+    }
+  },
+  "acceptance": {
+    "memoryRecallAt5": {
+      "status": "pass",
+      "observed": 1,
+      "threshold": 0.9
+    },
+    "memoryNdcgAt5": {
+      "status": "pass",
+      "observed": 1,
+      "threshold": 0.85
+    },
+    "memoryIrrelevantInjection": {
+      "status": "pass",
+      "observed": 0,
+      "threshold": 0.05
+    },
+    "memoryWarmStoreP95Ms": {
+      "status": "pass",
+      "observed": 4.745,
+      "threshold": 250
+    },
+    "memoryWarmRecallP95Ms": {
+      "status": "pass",
+      "observed": 0.901,
+      "threshold": 250
+    },
+    "memoryColdStoreP95Ms": {
+      "status": "pass",
+      "observed": 9.893,
+      "threshold": 1000
+    },
+    "memoryColdRecallP95Ms": {
+      "status": "pass",
+      "observed": 0.981,
+      "threshold": 1000
+    },
+    "typescriptColdCompileAndExecutionP95Ms": {
+      "status": "pass",
+      "observed": 86.395,
+      "threshold": 1000
+    },
+    "typescriptVerifiedCachedExecutionP95Ms": {
+      "status": "pass",
+      "observed": 101.295,
+      "threshold": 250
+    },
+    "uiActionDispatchOverheadP95Ms": {
+      "status": "pass",
+      "observed": 0.058,
+      "threshold": 500
+    }
+  },
+  "summary": {
+    "passed": 10,
+    "failed": 0,
+    "blocked": 0,
+    "notEvaluated": 0
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://marshal.dev/schemas/evals/evidence-record-1.2.0.json",
+  "title": "One append-only Marshal evaluation attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion", "runId", "attemptKey", "caseId", "family", "treatmentId",
+    "repetition", "pairId", "pairPosition", "orderIndex", "evidenceClass",
+    "startedAt", "completedAt", "promptDigest", "configurationDigest",
+    "environment", "outcome", "metrics", "evidence"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.2.0" },
+    "runId": { "type": "string", "minLength": 1 },
+    "attemptKey": { "type": "string", "minLength": 1 },
+    "caseId": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "family": { "enum": ["routing", "memory", "execution", "ui", "control"] },
+    "treatmentId": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "repetition": { "type": "integer", "minimum": 1 },
+    "pairId": { "type": "string", "minLength": 1 },
+    "pairPosition": { "enum": [1, 2] },
+    "orderIndex": { "type": "integer", "minimum": 1 },
+    "evidenceClass": { "enum": ["live", "fixture", "unavailable"] },
+    "startedAt": { "type": "string", "format": "date-time" },
+    "completedAt": { "type": "string", "format": "date-time" },
+    "promptDigest": { "$ref": "#/$defs/digest" },
+    "configurationDigest": { "$ref": "#/$defs/digest" },
+    "environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "corpusDigest", "repositoryCommit", "repositoryDirty", "harness",
+        "harnessVersion", "model", "reasoning", "os", "fixtureDigest",
+        "fixtureManifestDigest", "networkFixtureDigest", "toolManifestDigest",
+        "timeoutMs", "maxTurns", "maxRetries", "adapterDigest", "releaseAttestations"
+      ],
+      "properties": {
+        "corpusDigest": { "$ref": "#/$defs/digest" },
+        "repositoryCommit": { "type": "string", "minLength": 7 },
+        "repositoryDirty": { "type": "boolean" },
+        "harness": { "type": "string", "minLength": 1 },
+        "harnessVersion": { "type": "string", "minLength": 1 },
+        "model": { "type": "string", "minLength": 1 },
+        "reasoning": { "type": "string", "minLength": 1 },
+        "os": { "type": "string", "minLength": 1 },
+        "fixtureDigest": { "$ref": "#/$defs/digest" },
+        "fixtureManifestDigest": { "$ref": "#/$defs/digest" },
+        "networkFixtureDigest": { "$ref": "#/$defs/digest" },
+        "toolManifestDigest": { "$ref": "#/$defs/digest" },
+        "adapterDigest": { "$ref": "#/$defs/digest" },
+        "releaseAttestations": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["liveAuthorizationDigest", "networkEnforcementDigest", "processConfinementProfileDigest", "objectiveOracleDigest"],
+          "properties": {
+            "liveAuthorizationDigest": { "anyOf": [{ "$ref": "#/$defs/digest" }, { "type": "null" }] },
+            "networkEnforcementDigest": { "anyOf": [{ "$ref": "#/$defs/digest" }, { "type": "null" }] },
+            "processConfinementProfileDigest": { "anyOf": [{ "$ref": "#/$defs/digest" }, { "type": "null" }] },
+            "processConfinementMeasurementDigest": { "anyOf": [{ "$ref": "#/$defs/digest" }, { "type": "null" }] },
+            "processConfinementReceiptBundleDigest": { "anyOf": [{ "$ref": "#/$defs/digest" }, { "type": "null" }] },
+            "processConfinementCleanupDigest": { "anyOf": [{ "$ref": "#/$defs/digest" }, { "type": "null" }] },
+            "objectiveOracleDigest": { "anyOf": [{ "$ref": "#/$defs/digest" }, { "type": "null" }] }
+          }
+        },
+        "confinementLease": { "$ref": "#/$defs/confinementLeaseSummary" },
+        "timeoutMs": { "type": "integer", "minimum": 1000 },
+        "maxTurns": { "type": "integer", "minimum": 1 },
+        "maxRetries": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "outcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "excluded"],
+      "properties": {
+        "status": { "enum": ["passed", "failed", "timeout", "error", "skipped"] },
+        "excluded": { "type": "boolean" },
+        "exclusionReason": { "type": "string", "minLength": 1 },
+        "errorCategory": { "type": "string", "minLength": 1 },
+        "errorMessage": { "type": "string" }
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["weightedTaskSuccess", "wallTimeMs", "toolCalls", "retries", "tokens"],
+      "properties": {
+        "weightedTaskSuccess": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+        "wallTimeMs": { "type": "integer", "minimum": 0 },
+        "timeToUsefulResultMs": { "type": "integer", "minimum": 0 },
+        "toolCalls": { "type": "integer", "minimum": 0 },
+        "retries": { "type": "integer", "minimum": 0 },
+        "estimatedCostUsd": { "type": "number", "minimum": 0 },
+        "tokens": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["input", "output", "cached"],
+          "properties": {
+            "input": { "type": "integer", "minimum": 0 },
+            "output": { "type": "integer", "minimum": 0 },
+            "cached": { "type": "integer", "minimum": 0 }
+          }
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "trace", "finalOutput", "phaseOutputs", "artifacts", "permissions",
+        "receipts", "observedTools", "timings", "availability", "uiEvidence", "screenshots", "assertions"
+      ],
+      "properties": {
+        "trace": { "$ref": "#/$defs/fileEvidence" },
+        "finalOutput": { "$ref": "#/$defs/fileEvidence" },
+        "phaseOutputs": { "type": "array", "items": { "$ref": "#/$defs/fileEvidence" } },
+        "artifacts": { "type": "array", "items": { "$ref": "#/$defs/fileEvidence" } },
+        "permissions": { "$ref": "#/$defs/fileEvidence" },
+        "receipts": { "$ref": "#/$defs/fileEvidence" },
+        "observedTools": { "$ref": "#/$defs/fileEvidence" },
+        "timings": { "$ref": "#/$defs/fileEvidence" },
+        "availability": { "$ref": "#/$defs/fileEvidence" },
+        "uiEvidence": { "type": "array", "items": { "$ref": "#/$defs/fileEvidence" } },
+        "screenshots": { "type": "array", "items": { "$ref": "#/$defs/fileEvidence" } },
+        "assertions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "kind", "weight", "status", "score", "grader", "blind"],
+            "properties": {
+              "id": { "type": "string", "minLength": 1 },
+              "kind": { "enum": ["artifact", "state", "trace", "response", "human-rubric", "latency", "absence"] },
+              "weight": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 },
+              "status": { "enum": ["graded", "pending"] },
+              "score": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+              "grader": { "type": "string", "minLength": 1 },
+              "blind": { "type": "boolean" },
+              "blindId": { "type": "string", "pattern": "^[a-f0-9]{24}$" },
+              "notes": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "digest": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "digestOrNull": { "anyOf": [{ "$ref": "#/$defs/digest" }, { "type": "null" }] },
+    "confinementLeaseSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["providerConfigured", "status", "releaseEligible", "attestationMeasurement", "receiptBundleDigest", "cleanupReceiptDigest", "providerSha256", "providerIdentityDigest", "providerApprovalDigest", "profileSha256", "profileSemanticsSha256", "executionPlanDigest", "requiredRoles", "observedRoles", "commandReceiptCount", "attemptKey", "configurationDigest", "blockers"],
+      "properties": {
+        "providerConfigured": { "type": "boolean" },
+        "status": { "enum": ["unavailable", "attested", "cleaned", "error"] },
+        "releaseEligible": { "type": "boolean" },
+        "attestationMeasurement": { "$ref": "#/$defs/digestOrNull" },
+        "receiptBundleDigest": { "$ref": "#/$defs/digestOrNull" },
+        "cleanupReceiptDigest": { "$ref": "#/$defs/digestOrNull" },
+        "providerSha256": { "$ref": "#/$defs/digestOrNull" },
+        "providerIdentityDigest": { "$ref": "#/$defs/digestOrNull" },
+        "providerApprovalDigest": { "$ref": "#/$defs/digestOrNull" },
+        "profileSha256": { "$ref": "#/$defs/digestOrNull" },
+        "profileSemanticsSha256": { "$ref": "#/$defs/digestOrNull" },
+        "executionPlanDigest": { "$ref": "#/$defs/digestOrNull" },
+        "requiredRoles": { "type": "array", "maxItems": 16, "items": { "type": "string", "pattern": "^[a-z0-9-]{1,64}$" } },
+        "observedRoles": { "type": "array", "maxItems": 16, "items": { "type": "string", "pattern": "^[a-z0-9-]{1,64}$" } },
+        "commandReceiptCount": { "type": "integer", "minimum": 0 },
+        "attemptKey": { "anyOf": [{ "type": "string", "minLength": 1, "maxLength": 1024 }, { "type": "null" }] },
+        "configurationDigest": { "$ref": "#/$defs/digestOrNull" },
+        "blockers": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "fileEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "mediaType", "redacted"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "sha256": { "$ref": "#/$defs/digest" },
+        "mediaType": { "type": "string", "minLength": 1 },
+        "redacted": { "type": "boolean" },
+        "blindSafe": { "type": "boolean" },
+        "kind": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

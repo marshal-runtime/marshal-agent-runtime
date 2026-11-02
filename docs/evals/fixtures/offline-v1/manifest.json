@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "1.0.0",
+  "workspaces": {
+    "fixture://dependency-graph": {
+      "sourcePath": "workspaces/product-catalog",
+      "sha256": "63de122a508b79e4677c2befbac1540c19a9705388cbae22d1b6ebded50c0e42"
+    },
+    "fixture://incident-response": {
+      "sourcePath": "workspaces/incident-response",
+      "sha256": "1fe281ee9446a458ae846858b265328a85b21d37104a03ebe02a7cb8fcc6c908"
+    },
+    "fixture://migration-project": {
+      "sourcePath": "workspaces/migration-project",
+      "sha256": "52b8b51b1e6a67b205feb6e59d8c69f4b7ade0190cc6179faa21dc69243feb2c"
+    },
+    "fixture://product-catalog": {
+      "sourcePath": "workspaces/product-catalog",
+      "sha256": "63de122a508b79e4677c2befbac1540c19a9705388cbae22d1b6ebded50c0e42"
+    },
+    "fixture://product-design-brief": {
+      "sourcePath": "workspaces/product-design-brief",
+      "sha256": "b0a9fbc0931536c840d2f3c3763ca5f77354f6d3be11cc3deb7eabfac32d8d49"
+    },
+    "fixture://project-alpha": {
+      "sourcePath": "../../../../scripts/evals/fixtures/offline-v1/project-alpha",
+      "sha256": "45a14aeffda95c5ce78229326a38028f9d1477998d0b4b15a18727eb79269c08"
+    },
+    "fixture://project-beta": {
+      "sourcePath": "workspaces/project-beta",
+      "sha256": "6a8f9bea3d21fdf3a6508f493f82944cdc2df9243d92b61280b8db87ee14d60c"
+    },
+    "fixture://release-metrics": {
+      "sourcePath": "workspaces/release-metrics",
+      "sha256": "114d06fb3b3984b80199fec7b6e1f7d29e687e084119486d6b512caf5990a8d2"
+    },
+    "fixture://research-brief": {
+      "sourcePath": "workspaces/research-brief",
+      "sha256": "07b7e7ae5cc5f6a79192bcc7a7089d2afc16350c83b95dda7a50df34d3a2ab67"
+    },
+    "fixture://restricted-project": {
+      "sourcePath": "workspaces/restricted-project",
+      "sha256": "ff117ccaabe00e781b290335513da0febd1e9d1d328bc88b7a183aee9e99e339"
+    },
+    "fixture://service-operations": {
+      "sourcePath": "workspaces/service-operations",
+      "sha256": "d8b2318a1db0feb775641b50776128498a67c30c4415d909c105adeddf09d2c0"
+    },
+    "fixture://typescript-library": {
+      "sourcePath": "../../../../scripts/evals/fixtures/offline-v1/typescript-library",
+      "sha256": "4577b1ae2fdd4c9158de743a8c396eb3b6cf157cc14342e746b0bb39a4340361"
+    }
+  },
+  "fixtures": {
+    "abort-listener-leak": {
+      "workspace": "fixture://typescript-library",
+      "path": "src/queue.mjs"
+    },
+    "interview-attachment-set": {
+      "workspace": "fixture://research-brief",
+      "path": "interviews/alex.md",
+      "sha256": "82da633ef093b1862d3b6dc35bfb683015894b726875e472c89f369a6791cfe0"
+    },
+    "release-notes-2026-08": {
+      "workspace": "fixture://project-beta",
+      "path": "release-notes-2026-08.md",
+      "sha256": "1d774173ae3695da5f5c637107e0e1b46ca78957ce635f97d9dbcaac2bd33ef5"
+    },
+    "retry-helper-typescript": {
+      "workspace": "fixture://project-alpha",
+      "path": "retry-helper.ts",
+      "sha256": "19eef20100073b3d87f2715e23afe55575c51e061f461fedb72eb056f4587997"
+    },
+    "restricted-release-operations": {
+      "workspace": "fixture://restricted-project",
+      "path": "releases.json",
+      "sha256": "3924407a7454092429647edcc5a70c3297c50c83e17f7fd04baf26809c0bded0"
+    },
+    "service-events-and-deployments": {
+      "workspace": "fixture://service-operations",
+      "path": "events.jsonl",
+      "sha256": "61784b489af43e7696e9e5c0fe604566a61b6b67e5811b836f210f2924c172ee"
+    },
+    "service-events-and-deployments-revised": {
+      "workspace": "fixture://service-operations",
+      "path": "events-revised.jsonl",
+      "sha256": "7c1da80cedc04dfa178e1485c4bd4e08d254126d03dd6524bf58b24fbd29b4f1"
+    },
+    "weekly-release-metrics": {
+      "workspace": "fixture://release-metrics",
+      "path": "weekly.csv",
+      "sha256": "94ec69da3f3d7593715cef3504fe28201913219e44bf1604e118c929ed7ddc30"
+    }
+  }
+}

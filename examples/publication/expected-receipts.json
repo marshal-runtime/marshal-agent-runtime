@@ -1,0 +1,59 @@
+{
+  "version": "1.0.0",
+  "expectations": {
+    "ordinary-typescript": {
+      "kind": "typescript-execution",
+      "status": "succeeded",
+      "requiredFields": ["executionId", "source.contentDigest", "environment.moduleDigest", "durationMs"],
+      "dynamicFields": ["executionId", "source.contentDigest", "environment.moduleDigest", "environment.fingerprint", "durationMs"]
+    },
+    "automatic-memory-lifecycle": {
+      "kind": "lifecycle-and-memory",
+      "status": "applied",
+      "requiredFields": ["additionalContext", "lifecycleReceipt.receiptId", "lifecycleReceipt.eventId", "lifecycleReceipt.status", "lifecycleReceipt.replayed"],
+      "dynamicFields": ["additionalContext", "lifecycleReceipt.receiptId", "lifecycleReceipt.requestDigest", "lifecycleReceipt.completedAt"]
+    },
+    "capability-composition": {
+      "kind": "runtime-execution-tree",
+      "status": "success",
+      "requiredFields": ["receipt.lineage.rootExecutionId", "receipt.target", "nestedReceipts[].target", "nestedReceipts[].permission"],
+      "dynamicFields": ["receipt.receiptId", "receipt.executionId", "nestedReceipts[].receiptId", "durationMs"]
+    },
+    "ui-capability-action": {
+      "kind": "ui-action",
+      "status": "success",
+      "requiredFields": ["receipt.renderId", "receipt.actionId", "receipt.scope", "receipt.permission", "receipt.targetReceipt"],
+      "dynamicFields": ["receipt.receiptId", "receipt.renderId", "receipt.targetReceipt.receiptId", "durationMs"]
+    },
+    "ui-module-action": {
+      "kind": "ui-module-action",
+      "status": "success",
+      "requiredFields": ["receipt.actionId", "receipt.target.module.path", "receipt.requestDigest", "receipt.targetReceipt.providerReceipt.source.contentDigest"],
+      "dynamicFields": ["receipt.receiptId", "receipt.requestDigest", "receipt.targetReceipt.providerReceipt.source.contentDigest", "durationMs"]
+    },
+    "presentation-adaptation": {
+      "kind": "ui-display-mode",
+      "status": "granted-or-explicit-fallback",
+      "requiredFields": ["requested", "actual", "status"],
+      "dynamicFields": ["actual", "reason"]
+    },
+    "restart-recovery": {
+      "kind": "ui-recovery",
+      "status": "recovered",
+      "requiredFields": ["renderId", "sourceDigest", "state.local.scope", "state.local.version", "state.local.values"],
+      "dynamicFields": ["renderId", "sourceDigest", "state.local.updatedAt"]
+    },
+    "bounded-delegation": {
+      "kind": "delegation",
+      "status": "completed-or-failed",
+      "requiredFields": ["spawned[].delegationId", "waited[].state"],
+      "dynamicFields": ["spawned[].delegationId", "spawned[].adapterHandle", "waited[].result", "waited[].error", "waited[].changeRefs"]
+    },
+    "design-studio-capstone": {
+      "kind": "integrated-capstone",
+      "status": "success-or-explicit-limitation",
+      "requiredFields": ["routing", "moduleReceipt", "delegations", "uiCompileReceipt", "uiRenderReceipt", "actionReceipts", "restorationReceipt"],
+      "dynamicFields": ["moduleReceipt.executionId", "delegations", "uiCompileReceipt.componentId", "uiRenderReceipt.renderId", "timings"]
+    }
+  }
+}

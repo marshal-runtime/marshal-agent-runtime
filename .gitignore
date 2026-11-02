@@ -1,0 +1,10 @@
+node_modules/
+dist/
+coverage/
+extensions/
+.marshal/
+.marshal-evidence/
+.gitnexus/
+*.log
+docs/evidence/*.typescript
+eval-data/

@@ -1,0 +1,100 @@
+{
+  "schemaVersion": "1.0.0",
+  "family": "routing",
+  "cases": [
+    {
+      "id": "routing-persistent-interactive-explorer",
+      "title": "Recognize a reusable interactive application",
+      "intent": "Measure whether the agent selects persistent custom UI without being told which implementation to use.",
+      "promptPolicy": { "mentionsMarshal": false, "mentionsImplementation": false },
+      "phases": [
+        {
+          "id": "request",
+          "taskBoundary": "new-task",
+          "workspace": "fixture://product-catalog",
+          "prompt": "Build an interactive dependency explorer for this project that I can reopen later. Let me filter packages, inspect dependency paths, save a view, and run an impact lookup from the interface. Show the finished experience directly in this conversation."
+        }
+      ],
+      "targetCapabilities": ["routing", "ui"],
+      "budgets": { "timeoutMs": 480000, "maxTurns": 1 },
+      "scoring": {
+        "primary": "routing-accuracy",
+        "assertions": [
+          { "id": "chooses-persistent-ui", "kind": "trace", "description": "Selects a persistent custom UI path when available.", "weight": 0.4 },
+          { "id": "renders-in-chat", "kind": "artifact", "description": "Returns a usable interactive result in the conversation.", "weight": 0.4 },
+          { "id": "does-not-request-routing-help", "kind": "absence", "description": "Does not require the user to name a plugin or implementation.", "weight": 0.2 }
+        ]
+      }
+    },
+    {
+      "id": "routing-editable-capability-composition",
+      "title": "Recognize reusable programmable execution",
+      "intent": "Measure whether repeated data and capability composition is implemented as editable reusable code.",
+      "promptPolicy": { "mentionsMarshal": false, "mentionsImplementation": false },
+      "phases": [
+        {
+          "id": "request",
+          "taskBoundary": "new-task",
+          "workspace": "fixture://service-operations",
+          "prompt": "Inspect the service event files, group recurring failures by deploy, enrich each group with the owning package, and save the process so I can adjust and rerun it after new events arrive. Give me the result and the reusable source."
+        }
+      ],
+      "targetCapabilities": ["routing", "typescript"],
+      "budgets": { "timeoutMs": 360000, "maxTurns": 1 },
+      "scoring": {
+        "primary": "routing-accuracy",
+        "assertions": [
+          { "id": "selects-reusable-execution", "kind": "trace", "description": "Uses a reusable programmable path when available.", "weight": 0.4 },
+          { "id": "source-is-editable", "kind": "artifact", "description": "Leaves editable source that can be rerun.", "weight": 0.35 },
+          { "id": "result-is-correct", "kind": "state", "description": "Produces the expected enriched failure groups.", "weight": 0.25 }
+        ]
+      }
+    },
+    {
+      "id": "routing-disposable-chart-negative",
+      "title": "Avoid custom UI for a disposable chart",
+      "intent": "Protect normal visualization behavior from unnecessary Marshal activation.",
+      "promptPolicy": { "mentionsMarshal": false, "mentionsImplementation": false },
+      "phases": [
+        {
+          "id": "request",
+          "taskBoundary": "new-task",
+          "workspace": "fixture://release-metrics",
+          "prompt": "Plot the weekly failed-deployment rate from the provided table so I can see whether it is trending down. This is a one-off view; I do not need to save or edit it."
+        }
+      ],
+      "targetCapabilities": ["routing", "none"],
+      "budgets": { "timeoutMs": 180000, "maxTurns": 1 },
+      "scoring": {
+        "primary": "routing-accuracy",
+        "assertions": [
+          { "id": "avoids-custom-ui", "kind": "absence", "description": "Does not compile a persistent custom application.", "weight": 0.5 },
+          { "id": "chart-is-correct", "kind": "artifact", "description": "Produces an accurate readable chart using normal facilities.", "weight": 0.5 }
+        ]
+      }
+    },
+    {
+      "id": "routing-simple-answer-negative",
+      "title": "Avoid runtime activation for a direct answer",
+      "intent": "Measure false activation on an ordinary explanatory request.",
+      "promptPolicy": { "mentionsMarshal": false, "mentionsImplementation": false },
+      "phases": [
+        {
+          "id": "request",
+          "taskBoundary": "new-task",
+          "workspace": "fixture://typescript-library",
+          "prompt": "Explain why a TypeScript discriminated union is safer here than a set of optional boolean flags. Keep it concise and do not change any files."
+        }
+      ],
+      "targetCapabilities": ["routing", "none"],
+      "budgets": { "timeoutMs": 120000, "maxTurns": 1 },
+      "scoring": {
+        "primary": "routing-accuracy",
+        "assertions": [
+          { "id": "answers-directly", "kind": "response", "description": "Provides a correct concise explanation.", "weight": 0.7 },
+          { "id": "no-runtime-tools", "kind": "absence", "description": "Does not invoke runtime capabilities for the explanation.", "weight": 0.3 }
+        ]
+      }
+    }
+  ]
+}

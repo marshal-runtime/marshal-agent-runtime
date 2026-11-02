@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://marshal.dev/schemas/evals/adapter-result-1.0.0.json",
+  "title": "Result returned by a Marshal command evaluation adapter",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["status", "finalOutput", "trace", "assertionObservations"],
+  "properties": {
+    "evidenceClass": { "enum": ["live", "fixture", "unavailable"] },
+    "status": { "enum": ["passed", "failed", "timeout", "error", "skipped"] },
+    "finalOutput": { "type": "string" },
+    "phaseOutputs": { "type": "array", "items": { "type": "object" } },
+    "trace": { "type": "array" },
+    "generatedFiles": { "type": "array", "items": { "$ref": "#/$defs/suppliedFile" } },
+    "permissions": { "type": "array" },
+    "receipts": { "type": "array" },
+    "observedTools": { "type": "array" },
+    "uiEvidence": { "type": "array", "items": { "$ref": "#/$defs/suppliedFile" } },
+    "assertionObservations": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object", "additionalProperties": false, "required": ["type"],
+        "properties": {
+          "type": { "enum": ["boolean", "exact-json", "contains-all", "numeric-range", "digest-equals", "score"] },
+          "score": { "type": "number", "minimum": 0, "maximum": 1 },
+          "actual": {},
+          "expected": {},
+          "minimum": { "type": "number" },
+          "maximum": { "type": "number" },
+          "grader": { "type": "string", "minLength": 1 },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "timings": { "type": "object" },
+    "availability": { "type": "object", "additionalProperties": true },
+    "releaseAttestations": { "type": "object", "additionalProperties": true },
+    "confinementLease": { "$ref": "#/$defs/confinementLeaseSummary" },
+    "wallTimeMs": { "type": "integer", "minimum": 0 },
+    "timeToUsefulResultMs": { "type": "integer", "minimum": 0 },
+    "toolCalls": { "type": "integer", "minimum": 0 },
+    "estimatedCostUsd": { "type": "number", "minimum": 0 },
+    "tokens": {
+      "type": "object",
+      "properties": {
+        "input": { "type": "integer", "minimum": 0 },
+        "output": { "type": "integer", "minimum": 0 },
+        "cached": { "type": "integer", "minimum": 0 }
+      }
+    }
+  },
+  "$defs": {
+    "digestOrNull": { "anyOf": [{ "type": "string", "pattern": "^[a-f0-9]{64}$" }, { "type": "null" }] },
+    "confinementLeaseSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["providerConfigured", "status", "releaseEligible", "attestationMeasurement", "receiptBundleDigest", "cleanupReceiptDigest", "providerSha256", "providerIdentityDigest", "providerApprovalDigest", "profileSha256", "profileSemanticsSha256", "executionPlanDigest", "requiredRoles", "observedRoles", "commandReceiptCount", "attemptKey", "configurationDigest", "blockers"],
+      "properties": {
+        "providerConfigured": { "type": "boolean" },
+        "status": { "enum": ["unavailable", "attested", "cleaned", "error"] },
+        "releaseEligible": { "type": "boolean" },
+        "attestationMeasurement": { "$ref": "#/$defs/digestOrNull" },
+        "receiptBundleDigest": { "$ref": "#/$defs/digestOrNull" },
+        "cleanupReceiptDigest": { "$ref": "#/$defs/digestOrNull" },
+        "providerSha256": { "$ref": "#/$defs/digestOrNull" },
+        "providerIdentityDigest": { "$ref": "#/$defs/digestOrNull" },
+        "providerApprovalDigest": { "$ref": "#/$defs/digestOrNull" },
+        "profileSha256": { "$ref": "#/$defs/digestOrNull" },
+        "profileSemanticsSha256": { "$ref": "#/$defs/digestOrNull" },
+        "executionPlanDigest": { "$ref": "#/$defs/digestOrNull" },
+        "requiredRoles": { "type": "array", "maxItems": 16, "items": { "type": "string", "pattern": "^[a-z0-9-]{1,64}$" } },
+        "observedRoles": { "type": "array", "maxItems": 16, "items": { "type": "string", "pattern": "^[a-z0-9-]{1,64}$" } },
+        "commandReceiptCount": { "type": "integer", "minimum": 0 },
+        "attemptKey": { "anyOf": [{ "type": "string", "minLength": 1, "maxLength": 1024 }, { "type": "null" }] },
+        "configurationDigest": { "$ref": "#/$defs/digestOrNull" },
+        "blockers": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "suppliedFile": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "path": { "type": "string" },
+        "content": { "type": "string" },
+        "contentBase64": { "type": "string" },
+        "mediaType": { "type": "string" },
+        "redacted": { "type": "boolean" },
+        "blindSafe": { "type": "boolean" },
+        "kind": { "type": "string" }
+      }
+    }
+  }
+}

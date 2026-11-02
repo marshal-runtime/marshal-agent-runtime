@@ -1,0 +1,8 @@
+{
+  "subject": "Review the Marshal publication package for claims that exceed the supplied evidence.",
+  "prompts": [
+    { "name": "security", "prompt": "Identify threat-model omissions and unsafe assumptions." },
+    { "name": "reproducibility", "prompt": "Check whether every claim links to source, fixture, permissions, and expected receipts." },
+    { "name": "accessibility", "prompt": "Review the fallback and interaction descriptions for equivalent access." }
+  ]
+}

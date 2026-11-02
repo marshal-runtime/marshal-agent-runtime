@@ -1,0 +1,250 @@
+{
+  "schemaVersion": 1,
+  "scope": "published workspace packages plus direct declared dependency references; dependencies are not bundled",
+  "pnpmLockSha256": "6907fa85a2a97add3cab7ae09798a212ca4c193089967683b0933d319b0aee5f",
+  "canonicalWorkspaceLicenseSha256": "043cd6fde198e44661521dbcef7b6e080cf356af2f8c7da467e12486ff770f7f",
+  "workspacePackages": [
+    {
+      "name": "@marshal/agent-runtime-code-intelligence",
+      "version": "0.1.0",
+      "license": "MIT",
+      "licenseFileSha256": "043cd6fde198e44661521dbcef7b6e080cf356af2f8c7da467e12486ff770f7f",
+      "directory": "packages/agent-runtime-code-intelligence"
+    },
+    {
+      "name": "@marshal/agent-runtime-codex",
+      "version": "0.1.0",
+      "license": "MIT",
+      "licenseFileSha256": "043cd6fde198e44661521dbcef7b6e080cf356af2f8c7da467e12486ff770f7f",
+      "directory": "packages/agent-runtime-codex"
+    },
+    {
+      "name": "@marshal/agent-runtime-codex-capabilities",
+      "version": "0.1.0",
+      "license": "MIT",
+      "licenseFileSha256": "043cd6fde198e44661521dbcef7b6e080cf356af2f8c7da467e12486ff770f7f",
+      "directory": "packages/agent-runtime-codex-capabilities"
+    },
+    {
+      "name": "@marshal/agent-runtime-composer",
+      "version": "0.1.0",
+      "license": "MIT",
+      "licenseFileSha256": "043cd6fde198e44661521dbcef7b6e080cf356af2f8c7da467e12486ff770f7f",
+      "directory": "packages/agent-runtime-composer"
+    },
+    {
+      "name": "@marshal/agent-runtime-conformance",
+      "version": "0.1.0",
+      "license": "MIT",
+      "licenseFileSha256": "043cd6fde198e44661521dbcef7b6e080cf356af2f8c7da467e12486ff770f7f",
+      "directory": "packages/agent-runtime-conformance"
+    },
+    {
+      "name": "@marshal/agent-runtime-core",
+      "version": "0.1.0",
+      "license": "MIT",
+      "licenseFileSha256": "043cd6fde198e44661521dbcef7b6e080cf356af2f8c7da467e12486ff770f7f",
+      "directory": "packages/agent-runtime-core"
+    },
+    {
+      "name": "@marshal/agent-runtime-delegation",
+      "version": "0.1.0",
+      "license": "MIT",
+      "licenseFileSha256": "043cd6fde198e44661521dbcef7b6e080cf356af2f8c7da467e12486ff770f7f",
+      "directory": "packages/agent-runtime-delegation"
+    },
+    {
+      "name": "@marshal/agent-runtime-dsh",
+      "version": "0.1.0",
+      "license": "MIT",
+      "licenseFileSha256": "043cd6fde198e44661521dbcef7b6e080cf356af2f8c7da467e12486ff770f7f",
+      "directory": "packages/agent-runtime-dsh"
+    },
+    {
+      "name": "@marshal/agent-runtime-effects",
+      "version": "0.1.0",
+      "license": "MIT",
+      "licenseFileSha256": "043cd6fde198e44661521dbcef7b6e080cf356af2f8c7da467e12486ff770f7f",
+      "directory": "packages/agent-runtime-effects"
+    },
+    {
+      "name": "@marshal/agent-runtime-extensions",
+      "version": "0.1.0",
+      "license": "MIT",
+      "licenseFileSha256": "043cd6fde198e44661521dbcef7b6e080cf356af2f8c7da467e12486ff770f7f",
+      "directory": "packages/agent-runtime-extensions"
+    },
+    {
+      "name": "@marshal/agent-runtime-host",
+      "version": "0.1.0",
+      "license": "MIT",
+      "licenseFileSha256": "043cd6fde198e44661521dbcef7b6e080cf356af2f8c7da467e12486ff770f7f",
+      "directory": "packages/agent-runtime-host"
+    },
+    {
+      "name": "@marshal/agent-runtime-manifest",
+      "version": "0.1.0",
+      "license": "MIT",
+      "licenseFileSha256": "043cd6fde198e44661521dbcef7b6e080cf356af2f8c7da467e12486ff770f7f",
+      "directory": "packages/agent-runtime-manifest"
+    },
+    {
+      "name": "@marshal/agent-runtime-permissions",
+      "version": "0.1.0",
+      "license": "MIT",
+      "licenseFileSha256": "043cd6fde198e44661521dbcef7b6e080cf356af2f8c7da467e12486ff770f7f",
+      "directory": "packages/agent-runtime-permissions"
+    },
+    {
+      "name": "@marshal/agent-runtime-provider-artifacts",
+      "version": "0.1.0",
+      "license": "MIT",
+      "licenseFileSha256": "043cd6fde198e44661521dbcef7b6e080cf356af2f8c7da467e12486ff770f7f",
+      "directory": "packages/agent-runtime-provider-artifacts"
+    },
+    {
+      "name": "@marshal/agent-runtime-provider-kit",
+      "version": "0.1.0",
+      "license": "MIT",
+      "licenseFileSha256": "043cd6fde198e44661521dbcef7b6e080cf356af2f8c7da467e12486ff770f7f",
+      "directory": "packages/agent-runtime-provider-kit"
+    },
+    {
+      "name": "@marshal/agent-runtime-typescript",
+      "version": "0.1.0",
+      "license": "MIT",
+      "licenseFileSha256": "043cd6fde198e44661521dbcef7b6e080cf356af2f8c7da467e12486ff770f7f",
+      "directory": "packages/agent-runtime-typescript"
+    },
+    {
+      "name": "@marshal/agent-runtime-ui",
+      "version": "0.1.0",
+      "license": "MIT",
+      "licenseFileSha256": "043cd6fde198e44661521dbcef7b6e080cf356af2f8c7da467e12486ff770f7f",
+      "directory": "packages/agent-runtime-ui"
+    },
+    {
+      "name": "@marshal/codex",
+      "version": "0.1.0",
+      "license": "MIT",
+      "licenseFileSha256": "043cd6fde198e44661521dbcef7b6e080cf356af2f8c7da467e12486ff770f7f",
+      "directory": "packages/codex"
+    },
+    {
+      "name": "@marshal/runtime",
+      "version": "0.1.0",
+      "license": "MIT",
+      "licenseFileSha256": "043cd6fde198e44661521dbcef7b6e080cf356af2f8c7da467e12486ff770f7f",
+      "directory": "packages/runtime"
+    }
+  ],
+  "externalDependencyReferences": [
+    {
+      "name": "@modelcontextprotocol/sdk",
+      "version": "1.30.0",
+      "license": "MIT",
+      "packageJson": "node_modules/@modelcontextprotocol/sdk/package.json"
+    },
+    {
+      "name": "@openai/apps-sdk-ui",
+      "version": "0.2.2",
+      "license": "MIT",
+      "packageJson": "node_modules/@openai/apps-sdk-ui/package.json"
+    },
+    {
+      "name": "@openai/codex",
+      "version": "0.144.6",
+      "license": "Apache-2.0",
+      "packageJson": "node_modules/@openai/codex/package.json"
+    },
+    {
+      "name": "@quillstone/repository-registry-config",
+      "version": "0.6.0",
+      "license": "MIT",
+      "packageJson": "node_modules/@quillstone/repository-registry-config/package.json"
+    },
+    {
+      "name": "esbuild",
+      "version": "0.27.7",
+      "license": "MIT",
+      "packageJson": "node_modules/esbuild/package.json"
+    },
+    {
+      "name": "react-dom",
+      "version": "18.3.1",
+      "license": "MIT",
+      "packageJson": "node_modules/react-dom/package.json"
+    },
+    {
+      "name": "react",
+      "version": "18.3.1",
+      "license": "MIT",
+      "packageJson": "node_modules/react/package.json"
+    },
+    {
+      "name": "tailwindcss",
+      "version": "4.3.3",
+      "license": "MIT",
+      "packageJson": "node_modules/tailwindcss/package.json"
+    },
+    {
+      "name": "typescript",
+      "version": "5.9.3",
+      "license": "Apache-2.0",
+      "packageJson": "node_modules/typescript/package.json"
+    },
+    {
+      "name": "yaml",
+      "version": "2.9.0",
+      "license": "ISC",
+      "packageJson": "node_modules/yaml/package.json"
+    }
+  ],
+  "licenses": [
+    {
+      "license": "Apache-2.0",
+      "components": [
+        "@openai/codex@0.144.6",
+        "typescript@5.9.3"
+      ]
+    },
+    {
+      "license": "ISC",
+      "components": [
+        "yaml@2.9.0"
+      ]
+    },
+    {
+      "license": "MIT",
+      "components": [
+        "@marshal/agent-runtime-code-intelligence@0.1.0",
+        "@marshal/agent-runtime-codex-capabilities@0.1.0",
+        "@marshal/agent-runtime-codex@0.1.0",
+        "@marshal/agent-runtime-composer@0.1.0",
+        "@marshal/agent-runtime-conformance@0.1.0",
+        "@marshal/agent-runtime-core@0.1.0",
+        "@marshal/agent-runtime-delegation@0.1.0",
+        "@marshal/agent-runtime-dsh@0.1.0",
+        "@marshal/agent-runtime-effects@0.1.0",
+        "@marshal/agent-runtime-extensions@0.1.0",
+        "@marshal/agent-runtime-host@0.1.0",
+        "@marshal/agent-runtime-manifest@0.1.0",
+        "@marshal/agent-runtime-permissions@0.1.0",
+        "@marshal/agent-runtime-provider-artifacts@0.1.0",
+        "@marshal/agent-runtime-provider-kit@0.1.0",
+        "@marshal/agent-runtime-typescript@0.1.0",
+        "@marshal/agent-runtime-ui@0.1.0",
+        "@marshal/codex@0.1.0",
+        "@marshal/runtime@0.1.0",
+        "@modelcontextprotocol/sdk@1.30.0",
+        "@openai/apps-sdk-ui@0.2.2",
+        "@quillstone/repository-registry-config@0.6.0",
+        "esbuild@0.27.7",
+        "react-dom@18.3.1",
+        "react@18.3.1",
+        "tailwindcss@4.3.3"
+      ]
+    }
+  ],
+  "unresolvedLicenses": []
+}

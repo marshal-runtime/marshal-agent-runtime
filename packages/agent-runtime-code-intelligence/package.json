@@ -1,0 +1,46 @@
+{
+  "name": "@marshal/agent-runtime-code-intelligence",
+  "version": "0.1.0",
+  "description": "Default code-intelligence services for the Marshal agent runtime",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./runtime-service": {
+      "types": "./dist/runtimeService.d.ts",
+      "default": "./dist/runtimeService.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md"
+  ],
+  "scripts": {
+    "benchmark:runtime-search": "pnpm run build && node benchmark/runtime-search-comparison.mjs",
+    "build": "tsc -p tsconfig.json",
+    "test": "node --test test/*.test.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@marshal/agent-runtime-composer": "workspace:*",
+    "@marshal/agent-runtime-core": "workspace:*",
+    "@marshal/agent-runtime-extensions": "workspace:*",
+    "@marshal/agent-runtime-provider-kit": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.3",
+    "typescript": "^5.3.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=24.14.0"
+  },
+  "license": "MIT"
+}

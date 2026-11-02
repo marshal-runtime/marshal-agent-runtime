@@ -1,0 +1,106 @@
+{
+  "name": "@marshal/runtime",
+  "version": "0.1.0",
+  "description": "Extensible agent runtime, TypeScript execution, portable UI, permissions, jobs, and composition",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": { "marshal-runtime-mcp": "dist/mcp-cli.js", "marshal-runtime-scheduler": "dist/scheduler-cli.js" },
+  "exports": {
+    "./mcp": {
+      "types": "./dist/mcp.d.ts",
+      "default": "./dist/mcp.js"
+    },
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./core": {
+      "types": "./dist/core.d.ts",
+      "default": "./dist/core.js"
+    },
+    "./host": {
+      "types": "./dist/host.d.ts",
+      "default": "./dist/host.js"
+    },
+    "./host/lifecycle": {
+      "types": "./dist/host-lifecycle.d.ts",
+      "default": "./dist/host-lifecycle.js"
+    },
+    "./services": {
+      "types": "./dist/services.d.ts",
+      "default": "./dist/services.js"
+    },
+    "./events": {
+      "types": "./dist/events.d.ts",
+      "default": "./dist/events.js"
+    },
+    "./presets": {
+      "types": "./dist/presets.d.ts",
+      "default": "./dist/presets.js"
+    },
+    "./identity": {
+      "types": "./dist/identity.d.ts",
+      "default": "./dist/identity.js"
+    },
+    "./intelligence": {
+      "types": "./dist/intelligence.d.ts",
+      "default": "./dist/intelligence.js"
+    },
+    "./ui": {
+      "types": "./dist/ui.d.ts",
+      "default": "./dist/ui.js"
+    },
+    "./ui/declarative": {
+      "types": "./dist/declarative-ui.d.ts",
+      "default": "./dist/declarative-ui.js"
+    },
+    "./ui/declarative/browser": {
+      "types": "./dist/declarative-ui-browser.d.ts",
+      "default": "./dist/declarative-ui-browser.js"
+    },
+    "./effects": {
+      "types": "./dist/effects.d.ts",
+      "default": "./dist/effects.js"
+    },
+    "./extensions": {
+      "types": "./dist/extensions.d.ts",
+      "default": "./dist/extensions.js"
+    },
+    "./delegation": {
+      "types": "./dist/delegation.d.ts",
+      "default": "./dist/delegation.js"
+    },
+    "./conformance": {
+      "types": "./dist/conformance.d.ts",
+      "default": "./dist/conformance.js"
+    }
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "pnpm build && node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.30.0",
+    "@marshal/agent-runtime-code-intelligence": "workspace:*",
+    "@marshal/agent-runtime-composer": "workspace:*",
+    "@marshal/agent-runtime-core": "workspace:*",
+    "@marshal/agent-runtime-delegation": "workspace:*",
+    "@marshal/agent-runtime-host": "workspace:*",
+    "@marshal/agent-runtime-manifest": "workspace:*",
+    "@marshal/agent-runtime-ui": "workspace:*",
+    "@marshal/agent-runtime-effects": "workspace:*",
+    "@marshal/agent-runtime-conformance": "workspace:*",
+    "@marshal/agent-runtime-extensions": "workspace:*",
+    "@marshal/agent-runtime-typescript": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "25.9.5",
+    "typescript": "5.9.3"
+  },
+  "publishConfig": { "access": "public" },
+  "engines": { "node": ">=24.14.0" },
+  "license": "MIT"
+}

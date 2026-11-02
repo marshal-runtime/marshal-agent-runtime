@@ -1,0 +1,15 @@
+{
+  "summary": "Editable priority action. The UI calls the workspace module at examples/publication/ui-actions/update-priority.ts, which writes one project-scoped JSON artifact. If rendering is unavailable, ask the host to execute that module with itemId and priority and report the module and nested artifact receipts.",
+  "details": {
+    "action": "update-priority",
+    "module": "examples/publication/ui-actions/update-priority.ts",
+    "scope": "project",
+    "permissions": ["runtime.module.execute", "artifacts.write"],
+    "idempotency": "required",
+    "nonInteractiveProcedure": [
+      "Execute the editable workspace module in brokered mode.",
+      "Use a stable idempotency key for the same itemId and priority.",
+      "Return the source digest, action receipt, and nested artifacts.write receipt."
+    ]
+  }
+}

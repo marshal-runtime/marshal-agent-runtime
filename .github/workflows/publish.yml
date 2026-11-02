@@ -1,0 +1,97 @@
+name: publish-runtime-packages
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_commit:
+        description: Full 40-character commit SHA to publish
+        required: true
+        type: string
+      npm_tag:
+        description: npm distribution tag; must match checked-in release authority
+        required: true
+        type: string
+      npm_access:
+        description: npm access; must match checked-in release authority
+        required: true
+        type: choice
+        options: [public, restricted]
+      confirmation:
+        description: Type publish-with-provenance exactly
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: marshal-npm-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: >-
+      vars.MARSHAL_NPM_PUBLISH_ENABLED == 'true' &&
+      vars.MARSHAL_RELEASE_REPOSITORY == github.repository &&
+      vars.MARSHAL_NPM_ENVIRONMENT != '' &&
+      inputs.confirmation == 'publish-with-provenance'
+    environment:
+      name: ${{ vars.MARSHAL_NPM_ENVIRONMENT }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Reject moving refs and unauthorized identity
+        shell: bash
+        env:
+          RELEASE_COMMIT: ${{ inputs.release_commit }}
+          EXPECTED_REPOSITORY: ${{ vars.MARSHAL_RELEASE_REPOSITORY }}
+        run: |
+          set -euo pipefail
+          [[ "$RELEASE_COMMIT" =~ ^[0-9a-fA-F]{40}$ ]]
+          [[ "$RELEASE_COMMIT" == "$GITHUB_SHA" ]]
+          [[ "$GITHUB_REPOSITORY" == "$EXPECTED_REPOSITORY" ]]
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.release_commit }}
+          persist-credentials: false
+      - name: Verify immutable checkout
+        shell: bash
+        env:
+          RELEASE_COMMIT: ${{ inputs.release_commit }}
+        run: test "$(git rev-parse HEAD)" = "$RELEASE_COMMIT"
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.32.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.14.0
+          cache: pnpm
+          registry-url: ${{ vars.MARSHAL_NPM_REGISTRY_URL }}
+      - name: Require provenance-capable npm
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm_version="$(npm --version)"
+          node -e 'const [M,m]=process.argv[1].split(".").map(Number); if(M<11||(M===11&&m<5)) process.exit(1)' "$npm_version"
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm verify
+      - run: pnpm release:check
+      - name: Validate explicit authority
+        shell: bash
+        env:
+          MARSHAL_EXPECTED_REPOSITORY: ${{ vars.MARSHAL_RELEASE_REPOSITORY }}
+          MARSHAL_EXPECTED_ENVIRONMENT: ${{ vars.MARSHAL_NPM_ENVIRONMENT }}
+          MARSHAL_EXPECTED_REGISTRY: ${{ vars.MARSHAL_NPM_REGISTRY_URL }}
+          MARSHAL_EXPECTED_TAG: ${{ inputs.npm_tag }}
+          MARSHAL_EXPECTED_ACCESS: ${{ inputs.npm_access }}
+        run: node scripts/release-workflow-authority.mjs
+      - name: Publish dependency-ordered tarballs with OIDC provenance
+        env:
+          CI: 'true'
+          MARSHAL_RELEASE_CONFIRMATION: ${{ inputs.confirmation }}
+          MARSHAL_RELEASE_COMMIT: ${{ inputs.release_commit }}
+          MARSHAL_RELEASE_TAG: ${{ inputs.npm_tag }}
+          MARSHAL_RELEASE_ACCESS: ${{ inputs.npm_access }}
+          MARSHAL_NPM_ENVIRONMENT: ${{ vars.MARSHAL_NPM_ENVIRONMENT }}
+        run: node scripts/release-publish-matrix.mjs --publish --authority .github/release-authority.json

@@ -1,0 +1,9 @@
+model = "gpt-5.6-terra"
+model_reasoning_effort = "low"
+service_tier = "default"
+
+[plugins."marshal-runtime@marshal-memory827-certified"]
+enabled = false
+
+[plugins."marshal-runtime@marshal-demo828"]
+enabled = true

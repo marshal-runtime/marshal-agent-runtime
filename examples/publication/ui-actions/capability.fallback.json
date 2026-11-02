@@ -1,0 +1,15 @@
+{
+  "summary": "Project memory action board. Enter a query and invoke the declared, read-only memory.search action. If interactive rendering is unavailable, ask the host to search project memory for the same query and return up to five matches with receipts.",
+  "details": {
+    "action": "search-memory",
+    "target": "memory.search",
+    "scope": "project",
+    "permission": "memory.read",
+    "interactiveControls": ["memory query", "run declared action"],
+    "nonInteractiveProcedure": [
+      "Use memory.search with scope project, the supplied query, and limit 5.",
+      "Return all matches and the capability receipt.",
+      "Do not perform a write or silently widen scope."
+    ]
+  }
+}

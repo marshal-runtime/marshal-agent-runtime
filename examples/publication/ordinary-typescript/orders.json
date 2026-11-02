@@ -1,0 +1,7 @@
+{
+  "orders": [
+    { "id": "o-101", "region": "north", "amount": 125.5 },
+    { "id": "o-102", "region": "south", "amount": 90 },
+    { "id": "o-103", "region": "north", "amount": 24.5 }
+  ]
+}

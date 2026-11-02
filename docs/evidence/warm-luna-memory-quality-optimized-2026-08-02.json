@@ -1,0 +1,805 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "passed",
+  "evidenceClass": "live",
+  "qualityClaimAllowed": true,
+  "runId": "memory-brain-live-luna-1785678985037-16524",
+  "startedAt": "2026-08-02T13:55:27.750Z",
+  "completedAt": "2026-08-02T13:56:25.037Z",
+  "corpusVersion": "memory-brain-v2.1",
+  "corpusDigest": "79f674a8474ee2b4c3d74bbc4f847eb21bf3f4fbcdd9521cbd6417fda35736b8",
+  "transport": "codex-app-server",
+  "processPolicy": "one authenticated persistent codex app-server; no per-call codex exec; portable RuntimeMemoryBrain executes tool intents",
+  "reasoner": {
+    "id": "codex-app-server-gpt-5.6-luna",
+    "provider": "codex-native",
+    "model": "gpt-5.6-luna",
+    "effort": "low",
+    "mode": "live"
+  },
+  "configuration": {
+    "sampleCount": 1,
+    "selectedCases": [
+      "ambient-implicit-capture",
+      "direct-brain-remember",
+      "semantic-weak-overlap-recall",
+      "query-refinement-after-miss",
+      "irrelevant-memory-abstention"
+    ],
+    "requestTimeoutMs": 20000,
+    "brainTimeoutMs": 35000,
+    "maxRounds": 3,
+    "maxToolCalls": 8,
+    "maxWrites": 2,
+    "maxConcurrentTurns": 1
+  },
+  "latencyMs": {
+    "authenticatedStartup": 247.2,
+    "total": 57287.8,
+    "attempts": {
+      "count": 5,
+      "min": 9273.9,
+      "median": 11212,
+      "max": 13620,
+      "boundedSampleP95": 13620,
+      "p95ClaimAllowed": false
+    }
+  },
+  "tokenUsage": {
+    "inputTokens": 112758,
+    "outputTokens": 1296,
+    "cachedInputTokens": 0,
+    "totalTokens": 114054,
+    "reportedAttempts": 5
+  },
+  "smallSampleCaveat": "These are exact bounded attempts, not a production latency distribution or release p95. Publish all attempts and run paired repetitions before comparative claims.",
+  "summary": {
+    "total": 5,
+    "passed": 5,
+    "failed": 0,
+    "weightedTaskSuccess": 1,
+    "failedAttemptKeys": []
+  },
+  "attempts": [
+    {
+      "attemptKey": "ambient-implicit-capture:r1",
+      "caseId": "ambient-implicit-capture",
+      "repetition": 1,
+      "promptDigest": "7664db0773fd8c7366e011a8e8171883406c2a840aebf7b36bfef8847a8c9753",
+      "passed": true,
+      "score": 1,
+      "durationMs": 11786.4,
+      "operation": "observe",
+      "status": "completed",
+      "rounds": 3,
+      "toolCallCount": 3,
+      "receiptId": "memory-brain-49429440c97803000007ab6b4af8a223",
+      "selectedMemoryIds": [
+        "4d7d7fda-9f41-418c-8c7a-6d5d47aa1283"
+      ],
+      "storedMemoryIds": [
+        "4d7d7fda-9f41-418c-8c7a-6d5d47aa1283"
+      ],
+      "correctedMemoryIds": [],
+      "abstained": false,
+      "graph": {
+        "state": "unavailable",
+        "reason": "No GitNexus tool plane is configured."
+      },
+      "trace": [
+        {
+          "round": 1,
+          "name": "search_memory",
+          "arguments": {
+            "queryDigest": "a687e03143fb47f5362866878fe4ea7dfa27aef2403d696482a5ca919859dcdd",
+            "queryLength": 105,
+            "scope": "visible",
+            "limit": 20
+          },
+          "outcome": "ok",
+          "durationMs": 8,
+          "resultPreview": "{\"tool\":\"search_memory\",\"candidateIds\":[]}",
+          "candidateIds": []
+        },
+        {
+          "round": 2,
+          "name": "store_memory",
+          "arguments": {
+            "contentDigest": "7621aaf1d7359893c48aeabe2457c8ba8dc0f815c2c5a5ddf6be792ba9c53780",
+            "contentLength": 92,
+            "scope": "agent",
+            "type": "semantic",
+            "importance": 0.65,
+            "confidence": 0.95,
+            "tags": [
+              "release-notes",
+              "communication-preference",
+              "ordering"
+            ],
+            "metadataKeys": [
+              "evidence",
+              "source"
+            ]
+          },
+          "outcome": "ok",
+          "durationMs": 10,
+          "resultPreview": "{\"tool\":\"store_memory\",\"candidateIds\":[\"4d7d7fda-9f41-418c-8c7a-6d5d47aa1283\"],\"storedId\":\"4d7d7fda-9f41-418c-8c7a-6d5d47aa1283\"}",
+          "candidateIds": [
+            "4d7d7fda-9f41-418c-8c7a-6d5d47aa1283"
+          ]
+        },
+        {
+          "round": 3,
+          "name": "finish_brain_run",
+          "arguments": {
+            "selectedMemoryIds": [
+              "4d7d7fda-9f41-418c-8c7a-6d5d47aa1283"
+            ],
+            "abstained": false,
+            "summaryDigest": "157f063c121408ce6a3a65948025d7029907eb3248425036969d7c28d43aa061",
+            "summaryLength": 128
+          },
+          "outcome": "ok",
+          "durationMs": 0,
+          "candidateIds": [
+            "4d7d7fda-9f41-418c-8c7a-6d5d47aa1283"
+          ],
+          "resultPreview": "completed"
+        }
+      ],
+      "modelTurns": [
+        {
+          "operation": "observe",
+          "round": 1,
+          "durationMs": 3939.9,
+          "systemPromptDigest": "f0d6092ab6567ea624bc9afcf4e1224376bfbf1c208a93c6e5c1d83ccad63a1d",
+          "systemPromptBytes": 1039,
+          "userMessageDigest": "a0a859b3e9ee325fc4876ee23e9c198890fd86904ee489bda4840771ca84c044",
+          "userMessageBytes": 1373,
+          "toolCount": 5,
+          "toolSchemaBytes": 2161,
+          "usage": {
+            "inputTokens": 7821,
+            "outputTokens": 74,
+            "totalTokens": 7895
+          },
+          "returnedToolNames": [
+            "search_memory"
+          ]
+        },
+        {
+          "operation": "observe",
+          "round": 2,
+          "durationMs": 4540.3,
+          "systemPromptDigest": "f0d6092ab6567ea624bc9afcf4e1224376bfbf1c208a93c6e5c1d83ccad63a1d",
+          "systemPromptBytes": 1039,
+          "userMessageDigest": "24a3b7db6f16c248fc5f9d13788a9cd46369e4026243369dcb24dece39a4c726",
+          "userMessageBytes": 1480,
+          "toolCount": 5,
+          "toolSchemaBytes": 2161,
+          "usage": {
+            "inputTokens": 8008,
+            "outputTokens": 192,
+            "totalTokens": 8200
+          },
+          "returnedToolNames": [
+            "store_memory"
+          ]
+        },
+        {
+          "operation": "observe",
+          "round": 3,
+          "durationMs": 3245.7,
+          "systemPromptDigest": "f0d6092ab6567ea624bc9afcf4e1224376bfbf1c208a93c6e5c1d83ccad63a1d",
+          "systemPromptBytes": 1039,
+          "userMessageDigest": "e4412f55be8d435f0b02deb6ce18139cc4c54656df0c70f11624cec393f8a0df",
+          "userMessageBytes": 3179,
+          "toolCount": 5,
+          "toolSchemaBytes": 2161,
+          "usage": {
+            "inputTokens": 8804,
+            "outputTokens": 107,
+            "totalTokens": 8911
+          },
+          "returnedToolNames": [
+            "finish_brain_run"
+          ]
+        }
+      ],
+      "usage": {
+        "inputTokens": 24633,
+        "outputTokens": 373,
+        "totalTokens": 25006
+      },
+      "degradedReasons": [
+        "gitnexus_unavailable"
+      ],
+      "assertions": [
+        {
+          "id": "no-explicit-remember",
+          "passed": true
+        },
+        {
+          "id": "stored-reusable-preference",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "attemptKey": "direct-brain-remember:r1",
+      "caseId": "direct-brain-remember",
+      "repetition": 1,
+      "promptDigest": "488c91be1bda3b1e00452f047e465993fe659c4f869deca8ae62959a2bb37e5b",
+      "passed": true,
+      "score": 1,
+      "durationMs": 11080.5,
+      "operation": "remember",
+      "status": "completed",
+      "rounds": 3,
+      "toolCallCount": 3,
+      "receiptId": "memory-brain-49c844952ccaf189c4e5a7cbbbb1ad32",
+      "selectedMemoryIds": [
+        "d6642017-e353-49b2-a48c-3a27906ec1c7"
+      ],
+      "storedMemoryIds": [
+        "d6642017-e353-49b2-a48c-3a27906ec1c7"
+      ],
+      "correctedMemoryIds": [],
+      "abstained": false,
+      "graph": {
+        "state": "unavailable",
+        "reason": "No GitNexus tool plane is configured."
+      },
+      "trace": [
+        {
+          "round": 1,
+          "name": "search_memory",
+          "arguments": {
+            "queryDigest": "99622e6b45a364eaf1add4034676cc36f606f5b9a5c4406eee45aef0fb4c1f8c",
+            "queryLength": 66,
+            "scope": "visible",
+            "limit": 20
+          },
+          "outcome": "ok",
+          "durationMs": 2,
+          "resultPreview": "{\"tool\":\"search_memory\",\"candidateIds\":[]}",
+          "candidateIds": []
+        },
+        {
+          "round": 2,
+          "name": "store_memory",
+          "arguments": {
+            "contentDigest": "819dff822f4e383c5886ba7a1048a29aca1b37610ebec2a7105d2aba28276403",
+            "contentLength": 79,
+            "scope": "project",
+            "type": "procedural",
+            "importance": 0.8,
+            "confidence": 0.95,
+            "tags": [
+              "verification",
+              "package-metadata",
+              "repository-procedure"
+            ],
+            "metadataKeys": [
+              "evidence",
+              "reason"
+            ]
+          },
+          "outcome": "ok",
+          "durationMs": 7,
+          "resultPreview": "{\"tool\":\"store_memory\",\"candidateIds\":[\"d6642017-e353-49b2-a48c-3a27906ec1c7\"],\"storedId\":\"d6642017-e353-49b2-a48c-3a27906ec1c7\"}",
+          "candidateIds": [
+            "d6642017-e353-49b2-a48c-3a27906ec1c7"
+          ]
+        },
+        {
+          "round": 3,
+          "name": "finish_brain_run",
+          "arguments": {
+            "selectedMemoryIds": [
+              "d6642017-e353-49b2-a48c-3a27906ec1c7"
+            ],
+            "abstained": false,
+            "summaryDigest": "41185a47a8ee821613dd9761eb4fa937d3208f5c5d2ada5d1a39d765a0d5bc34",
+            "summaryLength": 88
+          },
+          "outcome": "ok",
+          "durationMs": 0,
+          "candidateIds": [
+            "d6642017-e353-49b2-a48c-3a27906ec1c7"
+          ],
+          "resultPreview": "completed"
+        }
+      ],
+      "modelTurns": [
+        {
+          "operation": "remember",
+          "round": 1,
+          "durationMs": 3802.4,
+          "systemPromptDigest": "f0d6092ab6567ea624bc9afcf4e1224376bfbf1c208a93c6e5c1d83ccad63a1d",
+          "systemPromptBytes": 1039,
+          "userMessageDigest": "cbb2c2eeb4efa2dd53d8732ff74cc3992555fe7dd52c0a7fd233ad2344632a27",
+          "userMessageBytes": 1494,
+          "toolCount": 6,
+          "toolSchemaBytes": 2616,
+          "usage": {
+            "inputTokens": 7984,
+            "outputTokens": 64,
+            "totalTokens": 8048
+          },
+          "returnedToolNames": [
+            "search_memory"
+          ]
+        },
+        {
+          "operation": "remember",
+          "round": 2,
+          "durationMs": 4301.5,
+          "systemPromptDigest": "f0d6092ab6567ea624bc9afcf4e1224376bfbf1c208a93c6e5c1d83ccad63a1d",
+          "systemPromptBytes": 1039,
+          "userMessageDigest": "c1b7fad8284852a33694b9ce32290e62d0213ebb1310aeb5f34f500e83e859be",
+          "userMessageBytes": 1601,
+          "toolCount": 6,
+          "toolSchemaBytes": 2616,
+          "usage": {
+            "inputTokens": 8161,
+            "outputTokens": 161,
+            "totalTokens": 8322
+          },
+          "returnedToolNames": [
+            "store_memory"
+          ]
+        },
+        {
+          "operation": "remember",
+          "round": 3,
+          "durationMs": 2930.5,
+          "systemPromptDigest": "f0d6092ab6567ea624bc9afcf4e1224376bfbf1c208a93c6e5c1d83ccad63a1d",
+          "systemPromptBytes": 1039,
+          "userMessageDigest": "a0b6fbcc230e5f6a420330e9eb186505a665bf3e30bace6c930792a9286e9265",
+          "userMessageBytes": 3475,
+          "toolCount": 6,
+          "toolSchemaBytes": 2616,
+          "usage": {
+            "inputTokens": 8951,
+            "outputTokens": 95,
+            "totalTokens": 9046
+          },
+          "returnedToolNames": [
+            "finish_brain_run"
+          ]
+        }
+      ],
+      "usage": {
+        "inputTokens": 25096,
+        "outputTokens": 320,
+        "totalTokens": 25416
+      },
+      "degradedReasons": [
+        "gitnexus_unavailable"
+      ],
+      "assertions": [
+        {
+          "id": "stored-procedure",
+          "passed": true
+        },
+        {
+          "id": "brain-mediated-write",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "attemptKey": "semantic-weak-overlap-recall:r1",
+      "caseId": "semantic-weak-overlap-recall",
+      "repetition": 1,
+      "promptDigest": "55c0fa0037b0116cde6d8ce6fbf7558a791a61633acc020e40a19c7cad6eac6a",
+      "passed": true,
+      "score": 1,
+      "durationMs": 13620,
+      "operation": "recall",
+      "status": "completed",
+      "rounds": 3,
+      "toolCallCount": 3,
+      "receiptId": "memory-brain-f3d5a4776e58a947a4830f78b1d1249c",
+      "selectedMemoryIds": [
+        "71187318-bceb-4bc0-a665-b7bd71c02a5e"
+      ],
+      "storedMemoryIds": [],
+      "correctedMemoryIds": [],
+      "abstained": false,
+      "graph": {
+        "state": "unavailable",
+        "reason": "No GitNexus tool plane is configured."
+      },
+      "trace": [
+        {
+          "round": 1,
+          "name": "search_memory",
+          "arguments": {
+            "queryDigest": "a1eb671bfa24b1bdf711a9d402e050093ed23ee7092ecbcadbdb4ca3d2fcb03d",
+            "queryLength": 35,
+            "scope": "visible",
+            "limit": 10
+          },
+          "outcome": "ok",
+          "durationMs": 3,
+          "resultPreview": "{\"tool\":\"search_memory\",\"candidateIds\":[]}",
+          "candidateIds": []
+        },
+        {
+          "round": 2,
+          "name": "search_memory",
+          "arguments": {
+            "queryDigest": "008d51cfe30782a83f78ff74b019b9119637a0651f5ae0a71e6a31246cf5f3d9",
+            "queryLength": 59,
+            "scope": "visible",
+            "limit": 10
+          },
+          "outcome": "ok",
+          "durationMs": 3,
+          "resultPreview": "{\"tool\":\"search_memory\",\"candidateIds\":[\"71187318-bceb-4bc0-a665-b7bd71c02a5e\"]}",
+          "candidateIds": [
+            "71187318-bceb-4bc0-a665-b7bd71c02a5e"
+          ]
+        },
+        {
+          "round": 3,
+          "name": "finish_brain_run",
+          "arguments": {
+            "selectedMemoryIds": [
+              "71187318-bceb-4bc0-a665-b7bd71c02a5e"
+            ],
+            "abstained": false,
+            "summaryDigest": "5a21251100a3d4e8ac46c3c79d2df50d3838bd09bfb4505bb0188f2b4eeb213e",
+            "summaryLength": 79
+          },
+          "outcome": "ok",
+          "durationMs": 0,
+          "candidateIds": [
+            "71187318-bceb-4bc0-a665-b7bd71c02a5e"
+          ],
+          "resultPreview": "completed"
+        }
+      ],
+      "modelTurns": [
+        {
+          "operation": "recall",
+          "round": 1,
+          "durationMs": 4879.1,
+          "systemPromptDigest": "f0d6092ab6567ea624bc9afcf4e1224376bfbf1c208a93c6e5c1d83ccad63a1d",
+          "systemPromptBytes": 1039,
+          "userMessageDigest": "ebdcbe28710dbfc47e747adb2c20da7c2ac8d36195b620089b8391a7360344fd",
+          "userMessageBytes": 1103,
+          "toolCount": 4,
+          "toolSchemaBytes": 1472,
+          "usage": {
+            "inputTokens": 7587,
+            "outputTokens": 61,
+            "totalTokens": 7648
+          },
+          "returnedToolNames": [
+            "search_memory"
+          ]
+        },
+        {
+          "operation": "recall",
+          "round": 2,
+          "durationMs": 4008.3,
+          "systemPromptDigest": "f0d6092ab6567ea624bc9afcf4e1224376bfbf1c208a93c6e5c1d83ccad63a1d",
+          "systemPromptBytes": 1039,
+          "userMessageDigest": "8c519edc38bffee4b1c2ed9a00afb18160c4c32d1deb8b8ee68f67c541af0843",
+          "userMessageBytes": 1210,
+          "toolCount": 4,
+          "toolSchemaBytes": 1472,
+          "usage": {
+            "inputTokens": 7762,
+            "outputTokens": 64,
+            "totalTokens": 7826
+          },
+          "returnedToolNames": [
+            "search_memory"
+          ]
+        },
+        {
+          "operation": "recall",
+          "round": 3,
+          "durationMs": 4684.8,
+          "systemPromptDigest": "f0d6092ab6567ea624bc9afcf4e1224376bfbf1c208a93c6e5c1d83ccad63a1d",
+          "systemPromptBytes": 1039,
+          "userMessageDigest": "2bc8b025524de287400a685cb4138e9e740b9c5e10e53371da1ff47af6f3d183",
+          "userMessageBytes": 3018,
+          "toolCount": 4,
+          "toolSchemaBytes": 1472,
+          "usage": {
+            "inputTokens": 8467,
+            "outputTokens": 97,
+            "totalTokens": 8564
+          },
+          "returnedToolNames": [
+            "finish_brain_run"
+          ]
+        }
+      ],
+      "usage": {
+        "inputTokens": 23816,
+        "outputTokens": 222,
+        "totalTokens": 24038
+      },
+      "degradedReasons": [
+        "gitnexus_unavailable"
+      ],
+      "assertions": [
+        {
+          "id": "selected-relevant-memory",
+          "passed": true
+        },
+        {
+          "id": "recalled-violet-envelope",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "attemptKey": "query-refinement-after-miss:r1",
+      "caseId": "query-refinement-after-miss",
+      "repetition": 1,
+      "promptDigest": "78decfe2a2ac8d8503964e978f1c28a358945beb249ace028379973802049a66",
+      "passed": true,
+      "score": 1,
+      "durationMs": 9273.9,
+      "operation": "recall",
+      "status": "completed",
+      "rounds": 2,
+      "toolCallCount": 2,
+      "receiptId": "memory-brain-2391da8de3d709caaaa978ea57ded27b",
+      "selectedMemoryIds": [
+        "7847334a-d603-4534-bc70-0fd84b443b6f"
+      ],
+      "storedMemoryIds": [],
+      "correctedMemoryIds": [],
+      "abstained": false,
+      "graph": {
+        "state": "unavailable",
+        "reason": "No GitNexus tool plane is configured."
+      },
+      "trace": [
+        {
+          "round": 1,
+          "name": "search_memory",
+          "arguments": {
+            "queryDigest": "d0f2c9b4d94758fdd0c01d037098c68d07362ce208ccb8c9638365498ecb2802",
+            "queryLength": 108,
+            "scope": "visible",
+            "limit": 20
+          },
+          "outcome": "ok",
+          "durationMs": 2,
+          "resultPreview": "{\"tool\":\"search_memory\",\"candidateIds\":[\"7847334a-d603-4534-bc70-0fd84b443b6f\"]}",
+          "candidateIds": [
+            "7847334a-d603-4534-bc70-0fd84b443b6f"
+          ]
+        },
+        {
+          "round": 2,
+          "name": "finish_brain_run",
+          "arguments": {
+            "selectedMemoryIds": [
+              "7847334a-d603-4534-bc70-0fd84b443b6f"
+            ],
+            "abstained": false,
+            "summaryDigest": "745deee5930913734b00cdcfdd027e8cc81c2a947ce3f331eaa1336ec08ca11b",
+            "summaryLength": 84
+          },
+          "outcome": "ok",
+          "durationMs": 0,
+          "candidateIds": [
+            "7847334a-d603-4534-bc70-0fd84b443b6f"
+          ],
+          "resultPreview": "completed"
+        }
+      ],
+      "modelTurns": [
+        {
+          "operation": "recall",
+          "round": 1,
+          "durationMs": 5956.4,
+          "systemPromptDigest": "f0d6092ab6567ea624bc9afcf4e1224376bfbf1c208a93c6e5c1d83ccad63a1d",
+          "systemPromptBytes": 1039,
+          "userMessageDigest": "a35107ce6fb9d4ce0e1b7917a21d33076340142797103cdff24429eed36b3db5",
+          "userMessageBytes": 1110,
+          "toolCount": 4,
+          "toolSchemaBytes": 1472,
+          "usage": {
+            "inputTokens": 7594,
+            "outputTokens": 75,
+            "totalTokens": 7669
+          },
+          "returnedToolNames": [
+            "search_memory"
+          ]
+        },
+        {
+          "operation": "recall",
+          "round": 2,
+          "durationMs": 3273.3,
+          "systemPromptDigest": "f0d6092ab6567ea624bc9afcf4e1224376bfbf1c208a93c6e5c1d83ccad63a1d",
+          "systemPromptBytes": 1039,
+          "userMessageDigest": "5a82491de39e3a9246817456788e8ab4c0d604f3b1f319f1b10f9c0980c62eee",
+          "userMessageBytes": 2922,
+          "toolCount": 4,
+          "toolSchemaBytes": 1472,
+          "usage": {
+            "inputTokens": 8315,
+            "outputTokens": 102,
+            "totalTokens": 8417
+          },
+          "returnedToolNames": [
+            "finish_brain_run"
+          ]
+        }
+      ],
+      "usage": {
+        "inputTokens": 15909,
+        "outputTokens": 177,
+        "totalTokens": 16086
+      },
+      "degradedReasons": [
+        "gitnexus_unavailable"
+      ],
+      "assertions": [
+        {
+          "id": "recalled-amber-ledger",
+          "passed": true
+        },
+        {
+          "id": "bounded-iterative-search",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "attemptKey": "irrelevant-memory-abstention:r1",
+      "caseId": "irrelevant-memory-abstention",
+      "repetition": 1,
+      "promptDigest": "c983520a52fcd0264850a8ea40db69285eae76bd14866a0b822fe9b9f44ff6ce",
+      "passed": true,
+      "score": 1,
+      "durationMs": 11212,
+      "operation": "recall",
+      "status": "abstained",
+      "rounds": 3,
+      "toolCallCount": 3,
+      "receiptId": "memory-brain-f23ddd32ebdb443304ffeb5d805bb85d",
+      "selectedMemoryIds": [],
+      "storedMemoryIds": [],
+      "correctedMemoryIds": [],
+      "abstained": true,
+      "graph": {
+        "state": "unavailable",
+        "reason": "No GitNexus tool plane is configured."
+      },
+      "trace": [
+        {
+          "round": 1,
+          "name": "search_memory",
+          "arguments": {
+            "queryDigest": "256a2914d9c9dc07d5ec6e3abe06c18e83e93e316df02826f2d031b81b4f4594",
+            "queryLength": 47,
+            "scope": "visible",
+            "limit": 10
+          },
+          "outcome": "ok",
+          "durationMs": 3,
+          "resultPreview": "{\"tool\":\"search_memory\",\"candidateIds\":[]}",
+          "candidateIds": []
+        },
+        {
+          "round": 2,
+          "name": "search_memory",
+          "arguments": {
+            "queryDigest": "39b951b6a65258cb8bfeb1bd81bed66339d6202e39bcb97f8f6a940cd575ac20",
+            "queryLength": 77,
+            "scope": "visible",
+            "limit": 10
+          },
+          "outcome": "ok",
+          "durationMs": 7,
+          "resultPreview": "{\"tool\":\"search_memory\",\"candidateIds\":[]}",
+          "candidateIds": []
+        },
+        {
+          "round": 3,
+          "name": "finish_brain_run",
+          "arguments": {
+            "selectedMemoryIds": [],
+            "abstained": true,
+            "summaryDigest": "9423b5fd16b5eefa5678399b534b0e4401763c2805d4214da9b33b5b37361650",
+            "summaryLength": 71
+          },
+          "outcome": "ok",
+          "durationMs": 0,
+          "candidateIds": [],
+          "resultPreview": "abstained"
+        }
+      ],
+      "modelTurns": [
+        {
+          "operation": "recall",
+          "round": 1,
+          "durationMs": 3989.2,
+          "systemPromptDigest": "f0d6092ab6567ea624bc9afcf4e1224376bfbf1c208a93c6e5c1d83ccad63a1d",
+          "systemPromptBytes": 1039,
+          "userMessageDigest": "9a545e8c5e11ef5171886c374c11fa5d72e36518e0818fc8900e3aca0e9d7ae2",
+          "userMessageBytes": 1118,
+          "toolCount": 4,
+          "toolSchemaBytes": 1472,
+          "usage": {
+            "inputTokens": 7588,
+            "outputTokens": 63,
+            "totalTokens": 7651
+          },
+          "returnedToolNames": [
+            "search_memory"
+          ]
+        },
+        {
+          "operation": "recall",
+          "round": 2,
+          "durationMs": 2615.3,
+          "systemPromptDigest": "f0d6092ab6567ea624bc9afcf4e1224376bfbf1c208a93c6e5c1d83ccad63a1d",
+          "systemPromptBytes": 1039,
+          "userMessageDigest": "efcf8be0c8f7fe7d6e99ac3b850a5dd8b5b9b8fc3d46c0320d748475cbdf9d28",
+          "userMessageBytes": 1225,
+          "toolCount": 4,
+          "toolSchemaBytes": 1472,
+          "usage": {
+            "inputTokens": 7765,
+            "outputTokens": 72,
+            "totalTokens": 7837
+          },
+          "returnedToolNames": [
+            "search_memory"
+          ]
+        },
+        {
+          "operation": "recall",
+          "round": 3,
+          "durationMs": 4559.1,
+          "systemPromptDigest": "f0d6092ab6567ea624bc9afcf4e1224376bfbf1c208a93c6e5c1d83ccad63a1d",
+          "systemPromptBytes": 1039,
+          "userMessageDigest": "e003b5b156dccc49f1aa8ac34912a7fe80c4735ed9fc4825f8d23818c0856855",
+          "userMessageBytes": 1332,
+          "toolCount": 4,
+          "toolSchemaBytes": 1472,
+          "usage": {
+            "inputTokens": 7951,
+            "outputTokens": 69,
+            "totalTokens": 8020
+          },
+          "returnedToolNames": [
+            "finish_brain_run"
+          ]
+        }
+      ],
+      "usage": {
+        "inputTokens": 23304,
+        "outputTokens": 204,
+        "totalTokens": 23508
+      },
+      "degradedReasons": [
+        "gitnexus_unavailable"
+      ],
+      "assertions": [
+        {
+          "id": "abstained",
+          "passed": true
+        },
+        {
+          "id": "zero-injection",
+          "passed": true
+        }
+      ]
+    }
+  ]
+}

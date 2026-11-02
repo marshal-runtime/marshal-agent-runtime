@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "presentationModes": ["inline", "fullscreen", "pip"],
+  "actions": [],
+  "tools": [],
+  "localState": { "scope": "session", "schemaVersion": "1.0.0" },
+  "authoringProfile": { "id": "marshal-standards", "version": "1.0.0" }
+}

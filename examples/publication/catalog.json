@@ -1,0 +1,106 @@
+{
+  "version": "1.0.0",
+  "evidencePolicy": {
+    "index": "../../docs/evidence/README.md",
+    "capturePlan": "demo-capture/capture-plan.json",
+    "generatedFixturesAreLiveEvidence": false,
+    "uncutLiveRequiredForVisualClaims": true
+  },
+  "examples": [
+    {
+      "id": "ordinary-typescript",
+      "title": "Ordinary TypeScript without UI",
+      "sources": ["ordinary-typescript/analyze-orders.ts", "ordinary-typescript/run.ts"],
+      "fixtures": ["ordinary-typescript/orders.json"],
+      "permissionProfile": "offline-compute",
+      "expectedReceipt": "ordinary-typescript",
+      "evidence": ["offline-executable", "required-uncut-live"]
+    },
+    {
+      "id": "automatic-memory-lifecycle",
+      "title": "Automatic memory write and cross-session recall",
+      "sources": ["automatic-memory-lifecycle/run.ts"],
+      "fixtures": [],
+      "permissionProfile": "automatic-memory",
+      "expectedReceipt": "automatic-memory-lifecycle",
+      "evidence": ["offline-executable", "required-uncut-live"]
+    },
+    {
+      "id": "capability-composition",
+      "title": "Brokered memory and artifact composition",
+      "sources": ["capability-composition/compose-project-brief.ts"],
+      "fixtures": ["capability-composition/input.json"],
+      "permissionProfile": "capability-composition",
+      "expectedReceipt": "capability-composition",
+      "evidence": ["generated-fixture", "required-uncut-live"]
+    },
+    {
+      "id": "ui-capability-action",
+      "title": "UI declared capability action",
+      "sources": ["ui-actions/ActionBoard.tsx"],
+      "fixtures": ["ui-actions/capability.application.json", "ui-actions/capability.fallback.json"],
+      "permissionProfile": "ui-capability-read",
+      "expectedReceipt": "ui-capability-action",
+      "evidence": ["generated-fixture", "required-uncut-live"]
+    },
+    {
+      "id": "ui-module-action",
+      "title": "UI editable-module backend action",
+      "sources": ["ui-actions/ActionBoard.tsx", "ui-actions/update-priority.ts"],
+      "fixtures": ["ui-actions/module.application.json", "ui-actions/module.fallback.json"],
+      "permissionProfile": "ui-module-write",
+      "expectedReceipt": "ui-module-action",
+      "evidence": ["generated-fixture", "required-uncut-live"]
+    },
+    {
+      "id": "presentation-adaptation",
+      "title": "Presentation-mode adaptation",
+      "sources": ["presentation-adaptation/AdaptiveStatus.tsx"],
+      "fixtures": ["presentation-adaptation/application.json", "presentation-adaptation/fallback.json"],
+      "permissionProfile": "ui-presentation",
+      "expectedReceipt": "presentation-adaptation",
+      "evidence": ["generated-fixture", "required-uncut-live"]
+    },
+    {
+      "id": "restart-recovery",
+      "title": "Restart-safe render and state recovery",
+      "sources": ["restart-recovery/PersistentPanel.tsx", "restart-recovery/run.ts"],
+      "fixtures": ["restart-recovery/application.json", "restart-recovery/fallback.json"],
+      "permissionProfile": "ui-recovery",
+      "expectedReceipt": "restart-recovery",
+      "evidence": ["offline-executable", "required-uncut-live"]
+    },
+    {
+      "id": "bounded-delegation",
+      "title": "Host-defined TypeScript delegation",
+      "sources": [
+        "bounded-delegation/orchestrate-review.ts"
+      ],
+      "fixtures": [
+        "bounded-delegation/input.json",
+        "bounded-delegation/fixture-result.json"
+      ],
+      "permissionProfile": "bounded-delegation",
+      "expectedReceipt": "bounded-delegation",
+      "evidence": ["generated-fixture", "required-uncut-live"]
+    },
+    {
+      "id": "design-studio-capstone",
+      "title": "Flagship design studio capstone",
+      "sources": [
+        "design-studio/DesignStudio.tsx",
+        "design-studio/refine-design.ts",
+        "design-studio/orchestrate-directions.ts"
+      ],
+      "fixtures": [
+        "design-studio/application.json",
+        "design-studio/fallback.json",
+        "design-studio/brief.json",
+        "design-studio/fixture-result.json"
+      ],
+      "permissionProfile": "capstone-preauthorized",
+      "expectedReceipt": "design-studio-capstone",
+      "evidence": ["generated-fixture", "required-uncut-live"]
+    }
+  ]
+}

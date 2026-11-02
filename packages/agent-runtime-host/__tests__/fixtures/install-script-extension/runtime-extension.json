@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "identity": "@fixture/live-install",
+  "version": "1.0.0",
+  "entrypoint": "dist/index.cjs",
+  "moduleFormat": "commonjs-bundle-v1",
+  "installation": {
+    "script": "marshal:install",
+    "packageManager": "npm"
+  },
+  "configuration": {
+    "schema": {
+      "type": "object",
+      "properties": {
+        "prefix": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "prefix"
+      ],
+      "additionalProperties": false
+    },
+    "defaults": {
+      "prefix": "fixture-default"
+    }
+  }
+}
